@@ -1,0 +1,123 @@
+
+<style>
+
+.container { margin: 0px !important; padding: 0px !important;}
+    .row .col .mcol{ padding: 0 !important;}
+    .hdline{display: none;}
+    @media (max-width: 767px){
+      .contain{width: 100%;}
+    .minner {padding-left: 0px !important; padding-right: 0px !important;}
+    }
+    @media (min-width: 1200px){
+      .container{width: 100% !important;}
+    }
+
+    #base
+    {
+      position: relative;
+      z-index: 0;
+    }
+    #player
+    {
+      position: relative;
+      z-index: 20;
+    }
+    #image
+    {
+      position: relative;
+      z-index: 30;
+    }
+    
+    </style>
+
+    
+
+<script>
+  //------------Youtube----------
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  function onYouTubeIframeAPIReady() {
+  var player;
+  player = new YT.Player('player', {
+    videoId: 'o79XWjmXgZo', // 要播放的第一支YouTube 影片ID
+    height: '1920',              // 播放器高度 (px)
+    width: '1080',               // 播放器寬度 (px)
+    playerVars: 
+      {
+      autoplay: 1,        // 在讀取時自動播放影片
+      controls: 0,        // 在播放器顯示暫停／播放按鈕
+      showinfo: 0,        // 隱藏影片標題
+      modestbranding: 1,  // 隱藏YouTube Logo
+      loop: 1,            // 讓影片循環播放
+      playlist: 'o79XWjmXgZo',  //要播放的第二支YouTube 影片ID，若要重複撥放同一個影片則設為同ID即可
+      fs: 0,              // 全螢幕按鈕
+      cc_load_policty: 0, // 隱藏字幕
+      iv_load_policy: 3,  // 隱藏影片註解
+      autohide: 0         // 當播放影片時隱藏影片控制列
+    },
+    events: {'onReady': onReady}
+  });
+
+ }
+  function onReady(e)   
+  {
+    e.target.playVideo();
+    e.target.mute();
+  }
+  
+  //-------------------------ReadyState----------------------------
+  document.onreadystatechange=function()
+  {
+    var wsc=$(window).width();
+    var hsc=wsc*9/16;
+    let player = document.getElementById("player");
+    let base = document.getElementById("base");
+    let image = document.getElementById("image");
+    base.width=player.width=wsc;
+    base.height=player.height=hsc
+    if( wsc < 1024 )
+    {
+      imageRandom();
+      image.width=player.width;;
+      image.height=player.height;
+      player.style.display="none";
+    }
+    
+  }
+  window.onresize=function()
+  {
+    var wsc=$(window).width();
+    var hsc=wsc*9/16;
+    let player = document.getElementById("player");
+    let base = document.getElementById("base");
+    let image = document.getElementById("image");
+    if( wsc >= 1024 )
+    {
+      base.width=player.width=wsc;
+      base.height=player.height=hsc
+    }
+    else if( wsc < 1024 )
+    {
+      image.width=player.width;;
+      image.height=player.height;
+    }
+  }
+  //------------Functions---------
+  function imageRandom()
+  {
+
+    var imgArray=['https://front.nptu.edu.tw/var/file/9/1009/img/3679/004.png','https://front.nptu.edu.tw/var/file/9/1009/img/3679/003.png','https://front.nptu.edu.tw/var/file/9/1009/img/3679/002.png','https://front.nptu.edu.tw/var/file/9/1009/img/3679/001.png'];
+    let rnd= parseInt(Math.random()*10)%4;
+    document.getElementById("image").src=imgArray[rnd];
+
+  }
+  
+</script>
+  
+
+<div id="base">
+  <img id="image">
+  <div id="player"></div>
+</div>
