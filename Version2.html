@@ -17,9 +17,27 @@
     
     </style>
     <script>
-
+      //------------------------------------------------variable------------------------------------------------\\
+      let vdArray =["https://front.nptu.edu.tw/var/file/9/1009/img/video1.mp4","https://front.nptu.edu.tw/var/file/9/1009/img/video2.mp4","https://front.nptu.edu.tw/var/file/9/1009/img/3678/test.mp4"];
+      let rnd= parseInt(Math.random()*10)%4;
+      //------------------------------------------------variable------------------------------------------------\\ 
+      document.onreadystatechange=function()
+      {
+        let vdArray =["https://front.nptu.edu.tw/var/file/9/1009/img/video1.mp4","https://front.nptu.edu.tw/var/file/9/1009/img/video2.mp4","https://front.nptu.edu.tw/var/file/9/1009/img/3678/test.mp4"];
+        let rnd= parseInt(Math.random()*10)%4;
+        var wsc=$(window).width();
+        var hsc=wsc*9/16;
+        $("#vdo").css({"height": hsc+"px"});
+        $("#vdo").css({"width":  wsc + "px"});
+        vdoRandom();
+      }
+      function vdoRandom()
+      {
+        document.getElementById("vdo").src=vdArray[0];
+      }
     </script>
-    <video id="vdo" >
 
+    <video id="vdo" autoplay loop muted controls ontimeupdate="linkchange()" >
+      <source id="srcc" type="video/mp4" src="#">
     </video>
 

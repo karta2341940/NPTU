@@ -20,7 +20,21 @@
     } 100% { 
      opacity: 0; 
     }
-} 
+    } 
+    @keyframes disappear2{ 
+    0% { 
+     opacity: 1; 
+    }
+    25% { 
+     opacity: 0.8; 
+    }
+    50% { 
+     opacity: 0.6; 
+    }
+     100% { 
+     opacity: 0; 
+    }
+    } 
     #player
     {
       position: relative;
@@ -60,19 +74,19 @@
     {
       border-color: rgba(255, 255, 255, 0.767);
       color: rgb(255, 255, 255);
-      background-color: rgba(163, 163, 163, 0.26);
+      background-color: rgba(255, 255, 255, 0.144);
     }
     .btn:hover
     {
       border-color: rgba(255, 255, 255, 0.521);
-      color: rgba(255,255,255);
-      background-color: rgba(163, 163, 163, 0.438);
+      color: rgb(255, 255, 255);
+      background-color: rgba(61, 61, 61, 0.582);
     }
     #top
     {
       position: absolute;
       z-index: 5;
-      background-image: linear-gradient(to bottom,rgb(0, 0, 0) 0,hsla(0, 0%, 0%, 0.933) 17.8%,hsla(0,0%,0%,.866) 28.3%,hsla(0,0%,0%,.8) 35%,hsla(0,0%,0%,.735) 40.2%,hsla(0,0%,0%,.67) 43.1%,hsla(0,0%,0%,.605) 49.3%,hsla(0,0%,0%,.54) 52.9%,hsla(0,0%,0%,.475) 56.4%,hsla(0,0%,0%,.41) 60%,hsla(0,0%,0%,.344) 63.2%,hsla(0,0%,0%,.277) 67.2%,hsla(0,0%,0%,.21) 70.5%,hsla(0,0%,0%,.141) 78.3%,hsla(0,0%,0%,.071) 88%,hsla(0,0%,0%,0) 100%);
+      background-image: linear-gradient(to bottom,#fff 0,rgb(255, 255, 255) 11.8%,hsla(0,0%,100%,.866) 21.3%,hsla(0,0%,100%,.8) 29%,hsla(0,0%,100%,.735) 35.2%,hsla(0,0%,100%,.67) 40.1%,hsla(0,0%,100%,.605) 44.3%,hsla(0,0%,100%,.54) 47.9%,hsla(0,0%,100%,.475) 51.4%,hsla(0,0%,100%,.41) 55%,hsla(0,0%,100%,.344) 59.2%,hsla(0,0%,100%,.277) 64.2%,hsla(0,0%,100%,.21) 70.5%,hsla(0,0%,100%,.141) 78.3%,hsla(0,0%,100%,.071) 88%,hsla(0,0%,100%,0) 100%);
       height: 200px;
       position: absolute;
       width: 100%;
@@ -81,7 +95,7 @@
     {
       position: absolute;
       z-index: 5;
-      background-image: linear-gradient(to top,#fff 0,hsla(0,0%,100%,.933) 11.8%,hsla(0,0%,100%,.866) 21.3%,hsla(0,0%,100%,.8) 29%,hsla(0,0%,100%,.735) 35.2%,hsla(0,0%,100%,.67) 40.1%,hsla(0,0%,100%,.605) 44.3%,hsla(0,0%,100%,.54) 47.9%,hsla(0,0%,100%,.475) 51.4%,hsla(0,0%,100%,.41) 55%,hsla(0,0%,100%,.344) 59.2%,hsla(0,0%,100%,.277) 64.2%,hsla(0,0%,100%,.21) 70.5%,hsla(0,0%,100%,.141) 78.3%,hsla(0,0%,100%,.071) 88%,hsla(0,0%,100%,0) 100%);
+      background-image: linear-gradient(to top,#fff 0,rgb(255, 255, 255) 11.8%,hsla(0,0%,100%,.866) 21.3%,hsla(0,0%,100%,.8) 29%,hsla(0,0%,100%,.735) 35.2%,hsla(0,0%,100%,.67) 40.1%,hsla(0,0%,100%,.605) 44.3%,hsla(0,0%,100%,.54) 47.9%,hsla(0,0%,100%,.475) 51.4%,hsla(0,0%,100%,.41) 55%,hsla(0,0%,100%,.344) 59.2%,hsla(0,0%,100%,.277) 64.2%,hsla(0,0%,100%,.21) 70.5%,hsla(0,0%,100%,.141) 78.3%,hsla(0,0%,100%,.071) 88%,hsla(0,0%,100%,0) 100%);
       height: 200px;
       position: absolute;
       width: 100%;
@@ -91,18 +105,18 @@
     
 
 <script>
-  //------------Youtube----------
+  //-------------------------------------Youtube-------------------------------------\\
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
   var firstScriptTag = document.getElementsByTagName('script')[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
   var imgArray=['https://front.nptu.edu.tw/var/file/9/1009/img/3679/004.png','https://front.nptu.edu.tw/var/file/9/1009/img/3679/003.png','https://front.nptu.edu.tw/var/file/9/1009/img/3679/002.png','https://front.nptu.edu.tw/var/file/9/1009/img/3679/001.png'];
   let rnd= parseInt(Math.random()*10)%4;
-
+  //-------------------------------------variable-------------------------------------\\
   function disappeared()
   {
-    document.getElementById("image").style.animation = "disappear 5s forwards";
-    
+    document.getElementById("image").style.animation = "disappear 6s forwards";
+    document.getElementById("top").style.animation= "disappear2 10s forwards";
   }
 
   function onYouTubeIframeAPIReady() {
@@ -136,8 +150,6 @@
   function onStateChange(e)
   { 
     disappeared();
-    
-     
   }
   //-------------------------ReadyState----------------------------576
   document.onreadystatechange=function()
@@ -157,7 +169,7 @@
     {
       let player = document.getElementById("player");
       player.width=wsc;
-      player.height=hsc
+      player.height=hsc;
       $("#top").css({"margin-top": 0 +"px"});
       $("#bottom").css({"margin-top": hsc-195 +"px"});
     }
@@ -166,7 +178,7 @@
     {
 
       image.style.width=wsc;
-      image.style.height=hsc
+      image.style.height=hsc;
       $("#mask").css({"height": hsc+"px"});
       $("#mask").css({"width":  wsc + "px"});
       document.getElementById("player").id="play";
@@ -180,7 +192,7 @@
     else if(wsc <= 576)
     {
       image.style.width=wsc;
-      image.style.height=hsc
+      image.style.height=hsc;
       $("#mask").css({"height": hsc+"px"});
       $("#mask").css({"width":  wsc + "px"});
       document.getElementById("player").id="play";
@@ -205,7 +217,7 @@
     if( wsc >= 1024 )
     {
       player.width=wsc;
-      player.height=hsc
+      player.height=hsc;
       $("#mask").css({"height": hsc+"px"});
       $("#mask").css({"width":  wsc + "px"});
     }
@@ -241,9 +253,7 @@
   
   function imageRandom()
   {
-
     document.getElementById("image").src=imgArray[rnd];
-
   }
   function gohome()
   {
@@ -256,7 +266,7 @@
 <button type="button" onclick="gohome()" id="btnn" class="btn">進入校首頁</button>
 <p id="size" style="position: absolute; z-index: 61; "></p>
 <i>
-  <a id="nptulink" href="https://www.nptu.edu.tw">Nationa Pingtung University</a>
+  <a id="nptulink" href="https://www.nptu.edu.tw">National Pingtung University</a>
 </i>
 <span id="mask" style="background-color: rgba(90, 90, 90, 0.171);"></span>
 
