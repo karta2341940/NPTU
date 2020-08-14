@@ -109,7 +109,7 @@
       iv_load_policy: 3,  // 隱藏影片註解
       autohide: 0         // 當播放影片時隱藏影片控制列
     },
-    events: {'onReady': onReady}
+    events: {'onReady': onReady,'onStateChange': onStateChange}
   });
 
  }
@@ -118,7 +118,11 @@
     e.target.playVideo();
     e.target.mute();
   }
-  
+  function onStateChange(e)
+  { 
+    document.getElementById("image").style.display="none";
+   
+  }
   //-------------------------ReadyState----------------------------576
   document.onreadystatechange=function()
   {
@@ -126,8 +130,14 @@
     let mask = document.getElementById("mask");
     var wsc=$(window).width();
     var hsc=wsc*9/16;
+    $("#mask").css({"height": hsc+"px"});
+    $("#mask").css({"width":  wsc + "px"});
+    $("#image").css({"height": hsc+"px"});
+    $("#image").css({"width":  wsc + "px"});
+    imageRandom();
+
     //document.getElementById("size").innerText = wsc;
-    if(wsc > 1024)
+    if(wsc >= 1024)
     {
       let player = document.getElementById("player");
       player.width=wsc;
@@ -135,8 +145,7 @@
       $("#top").css({"margin-top": 0 +"px"});
       $("#bottom").css({"margin-top": hsc-195 +"px"});
     }
-    $("#mask").css({"height": hsc+"px"});
-    $("#mask").css({"width":  wsc + "px"});
+
     if( wsc < 1024 && wsc >= 576)
     {
 
@@ -144,7 +153,6 @@
       image.style.height=hsc
       $("#mask").css({"height": hsc+"px"});
       $("#mask").css({"width":  wsc + "px"});
-      imageRandom();
       document.getElementById("player").id="play";
 
       $("#nptulink").css({"margin-top": hsc*1/10+"px"});
@@ -159,7 +167,6 @@
       image.style.height=hsc
       $("#mask").css({"height": hsc+"px"});
       $("#mask").css({"width":  wsc + "px"});
-      imageRandom();
       document.getElementById("player").id="play";
       $("#nptulink").css({"margin-top": hsc*0.5/10+"px"});
       $("#nptulink").css({"margin-left": "50px"});
