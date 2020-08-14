@@ -14,100 +14,13 @@
     @media (min-width: 992px){
       .container{width: 100% !important;}
     }
-    #IFrame
-    {
-      width: 100%;
-      height: auto;
-    }
+    
     </style>
-
     <script>
-        document.onreadystatechange=function()
-        {
-          
-        }
-        window.onresize=function()
-        {
-          
-        }
-      </script>
-        <div>
-<!------------------------------------------iframe start--------------------------->
-          <iframe frameborder="0" allowfullscreen="1" id="IFrame" srcdoc="
-            
-        <!DOCTYPE html>
-        <html>
-          <head>
-            
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-            <!-------------------------Script------------------------->
-            <script>
-      document.onreadystatechange=function()
-      {
-        let wid=$(window).width();
-        let height=  wid*9/16;
-      }
-      window.onresize=function()
-      {
-
-      }
-    </script>
-    <!---------------------------End--------------------------->
-    <style>
-      body{margin:0px;}
-    </style>
-  </head>
-  <body>
-    <h1>Hello</h1>
-    
-    
-    
-    
-    <div id="player123"></div>
-    <!----------------------Youtube---------------------->
-    <script>
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-      function onYouTubeIframeAPIReady()
-      {
-        var player;
-        player = new YT.Player('player',
-        {
-          videoId: 'o79XWjmXgZo', // 要播放的第一支YouTube 影片ID
-          height: '1920',              // 播放器高度 (px)
-          width: '1080',               // 播放器寬度 (px)
-          events: {'onReady': onReady},
-          playerVars: 
-          {
-              autoplay: 1,        // 在讀取時自動播放影片
-              controls: 0,        // 在播放器顯示暫停／播放按鈕
-              showinfo: 0,        // 隱藏影片標題
-              modestbranding: 1,  // 隱藏YouTube Logo
-              loop: 1,            // 讓影片循環播放
-              playlist: 'o79XWjmXgZo',  //要播放的第二支YouTube 影片ID，若要重複撥放同一個影片則設為同ID即可
-              fs: 0,              // 全螢幕按鈕
-              cc_load_policty: 0, // 隱藏字幕
-              iv_load_policy: 3,  // 隱藏影片註解
-              autohide: 0         // 當播放影片時隱藏影片控制列
-          }
-        });
-
-      }
-      function onReady(e)   
-      {
-        e.target.playVideo();
-        e.target.mute();
-      }
 
     </script>
-  </body>
-</html>
+    
+    <video id="vdo" >
 
+    </video>
 
-
-</iframe>
-</div>
