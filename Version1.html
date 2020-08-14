@@ -48,18 +48,19 @@
       position: absolute;
       z-index: 60;
       font-size: 16pt;
-      margin: 350px 50px;
+      margin: 400px 50px;
     }
     .btn
     {
       border-color: rgba(255, 255, 255, 0.767);
       color: rgb(255, 255, 255);
+      background-color: rgba(163, 163, 163, 0.26);
     }
     .btn:hover
     {
       border-color: rgba(255, 255, 255, 0.521);
       color: rgba(255,255,255);
-      background-color: rgba(163, 163, 163, 0.336);
+      background-color: rgba(163, 163, 163, 0.438);
     }
 
     </style>
@@ -109,24 +110,43 @@
     let mask = document.getElementById("mask");
     var wsc=$(window).width();
     var hsc=wsc*9/16;
+    document.getElementById("size").innerText = wsc;
     player.width=wsc;
     player.height=hsc
     mask.width=wsc;
     mask.height=hsc;
     $("#mask").css({"height": hsc+"px"});
     $("#mask").css({"width":  wsc + "px"});
-    if( wsc < 1024 )
+    if( wsc < 1024 && wsc >= 576)
+    {
+
+      image.style.width=wsc;
+      image.style.height=hsc
+      $("#mask").css({"height": hsc+"px"});
+      $("#mask").css({"width":  wsc + "px"});
+      imageRandom();
+      player.id="play";
+
+      $("#nptulink").css({"margin-top": hsc*1/10+"px"});
+      $("#nptulink").css({"margin-left": "50px"});
+      $("#nptulink").css({"font-size": "48pt"});
+      $("#btnn").css({"margin-top": hsc*7/10+"px"});
+      $("#btnn").css({"margin-left": "50px"});
+    }
+    if(wsc <= 576)
     {
       image.style.width=wsc;
       image.style.height=hsc
       $("#mask").css({"height": hsc+"px"});
       $("#mask").css({"width":  wsc + "px"});
       imageRandom();
-      player.style.display="none";
-    }
-    else if(wsc<=576)
-    {
-      $("#nptulink").css({"margin-top": hsc*1/5 +"px"});
+      player.id="play";
+      $("#nptulink").css({"margin-top": hsc*0.5/10+"px"});
+      $("#nptulink").css({"margin-left": "50px"});
+      $("#nptulink").css({"font-size": wsc/16+"pt"});
+      $("#btnn").css({"margin-top": hsc*7.5/10+"px"});
+      $("#btnn").css({"margin-left": "50px"});
+      $("#btnn").css({"font-size": wsc/36+"pt"});
     }
     
   }
@@ -137,6 +157,8 @@
     let mask = document.getElementById("mask");
     var wsc=$(window).width();
     var hsc=wsc*9/16;
+    
+    document.getElementById("size").innerText = wsc;
     if( wsc >= 1024 )
     {
       player.width=wsc;
@@ -144,12 +166,26 @@
       $("#mask").css({"height": hsc+"px"});
       $("#mask").css({"width":  wsc + "px"});
     }
-    else if( wsc < 1024 )
+    else if( wsc < 1024 && wsc >= 576 )
     {
       image.style.width=wsc;
       image.style.height=hsc
       $("#mask").css({"height": hsc+"px"});
       $("#mask").css({"width":  wsc + "px"});
+    }
+
+    if(wsc <= 560)
+    {
+      image.style.width=wsc;
+      image.style.height=hsc
+      $("#mask").css({"height": hsc+"px"});
+      $("#mask").css({"width":  wsc + "px"});
+      $("#nptulink").css({"margin-top": hsc*0.5/10+"px"});
+      $("#nptulink").css({"margin-left": "50px"});
+      $("#nptulink").css({"font-size": wsc/16+"pt"});
+      $("#btnn").css({"margin-top": hsc*7.5/10+"px"});
+      $("#btnn").css({"margin-left": "50px"});
+      $("#btnn").css({"font-size": wsc/36+"pt"});
     }
   }
   //------------Functions--------- 
@@ -169,6 +205,7 @@
   
 
 <button type="button" onclick="gohome()" id="btnn" class="btn">進入校首頁</button>
+<p id="size" style="position: absolute; z-index: 61; "></p>
 <i>
   <a id="nptulink" href="https://www.nptu.edu.tw">Nationa Pingtung University</a>
 </i>
