@@ -50,6 +50,18 @@
       font-size: 16pt;
       margin: 350px 50px;
     }
+    .btn
+    {
+      border-color: rgba(255, 255, 255, 0.767);
+      color: rgb(255, 255, 255);
+    }
+    .btn:hover
+    {
+      border-color: rgba(255, 255, 255, 0.521);
+      color: rgba(255,255,255);
+      background-color: rgba(163, 163, 163, 0.336);
+    }
+
     </style>
 
     
@@ -89,7 +101,7 @@
     e.target.mute();
   }
   
-  //-------------------------ReadyState----------------------------
+  //-------------------------ReadyState----------------------------576
   document.onreadystatechange=function()
   {
     let player = document.getElementById("player");
@@ -111,6 +123,10 @@
       $("#mask").css({"width":  wsc + "px"});
       imageRandom();
       player.style.display="none";
+    }
+    else if(wsc<=576)
+    {
+      $("#nptulink").css({"margin-top": hsc*1/5 +"px"});
     }
     
   }
@@ -136,7 +152,7 @@
       $("#mask").css({"width":  wsc + "px"});
     }
   }
-  //------------Functions---------
+  //------------Functions--------- 
   function imageRandom()
   {
 
