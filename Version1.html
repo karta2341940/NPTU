@@ -14,7 +14,13 @@
     @media (min-width: 992px){
       .container{width: 100% !important;}
     }
-   
+    @keyframes disappear{ 
+    0% { 
+     opacity: 1; 
+    } 100% { 
+     opacity: 0; 
+    }
+} 
     #player
     {
       position: relative;
@@ -90,6 +96,15 @@
   tag.src = "https://www.youtube.com/iframe_api";
   var firstScriptTag = document.getElementsByTagName('script')[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  var imgArray=['https://front.nptu.edu.tw/var/file/9/1009/img/3679/004.png','https://front.nptu.edu.tw/var/file/9/1009/img/3679/003.png','https://front.nptu.edu.tw/var/file/9/1009/img/3679/002.png','https://front.nptu.edu.tw/var/file/9/1009/img/3679/001.png'];
+  let rnd= parseInt(Math.random()*10)%4;
+
+  function disappeared()
+  {
+    document.getElementById("image").style.animation = "disappear 5s forwards";
+    
+  }
+
   function onYouTubeIframeAPIReady() {
   var player;
   player = new YT.Player('player', {
@@ -120,8 +135,9 @@
   }
   function onStateChange(e)
   { 
-    document.getElementById("image").style.display="none";
-   
+    disappeared();
+    
+     
   }
   //-------------------------ReadyState----------------------------576
   document.onreadystatechange=function()
@@ -148,7 +164,7 @@
 
     if( wsc < 1024 && wsc >= 576)
     {
-//121
+
       image.style.width=wsc;
       image.style.height=hsc
       $("#mask").css({"height": hsc+"px"});
@@ -222,11 +238,10 @@
     }
   }
   //------------Functions--------- 
+  
   function imageRandom()
   {
 
-    var imgArray=['https://front.nptu.edu.tw/var/file/9/1009/img/3679/004.png','https://front.nptu.edu.tw/var/file/9/1009/img/3679/003.png','https://front.nptu.edu.tw/var/file/9/1009/img/3679/002.png','https://front.nptu.edu.tw/var/file/9/1009/img/3679/001.png'];
-    let rnd= parseInt(Math.random()*10)%4;
     document.getElementById("image").src=imgArray[rnd];
 
   }
