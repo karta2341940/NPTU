@@ -32,7 +32,7 @@
       function vedioPlay()
       {
         a1 = Random();
-        let vdArray =["https://front.nptu.edu.tw/var/file/9/1009/img/video1.mp4","https://front.nptu.edu.tw/var/file/9/1009/img/video2.mp4","https://front.nptu.edu.tw/var/file/9/1009/img/3678/test.mp4"];
+        let vdArray =["/var/file/9/1009/img/v01.mp4","/var/file/9/1009/img/v02.mp4","/var/file/9/1009/img/3678/v03.mp4"];
         let vdo=document.getElementById("vdo");
         if( count == 0)
         {
@@ -75,7 +75,7 @@
       
     </script>
     <!--                                               Main                                               -->
-<video id="vdo" ontimeupdate="update()" onended="vedioPlay()" autoplay controls muted src="https://front.nptu.edu.tw/var/file/9/1009/img/video1.mp4">
+<video id="vdo" ontimeupdate="update()" onended="vedioPlay()" autoplay controls muted src="/var/file/9/1009/img/v02.mp4">
 
 </video>
 <p id="duration">Duration time :</p>
