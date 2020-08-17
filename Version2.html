@@ -17,32 +17,72 @@
     
     </style>
     <script>
+      
       //------------------------------------------------variable------------------------------------------------\\
-      let vdArray =["https://front.nptu.edu.tw/var/file/9/1009/img/video1.mp4","https://front.nptu.edu.tw/var/file/9/1009/img/video2.mp4","https://front.nptu.edu.tw/var/file/9/1009/img/3678/test.mp4"];
-      let rnd= parseInt(Math.random()*10)%4;
+        let a1=0,a2=0,count=0;
       //------------------------------------------------variable------------------------------------------------\\ 
       document.onreadystatechange=function()
       {
-        let vdArray =["https://front.nptu.edu.tw/var/file/9/1009/img/video1.mp4","https://front.nptu.edu.tw/var/file/9/1009/img/video2.mp4","https://front.nptu.edu.tw/var/file/9/1009/img/3678/test.mp4"];
-        let rnd= parseInt(Math.random()*10)%4;
+        let vdo=document.getElementById("vdo");
         var wsc=$(window).width();
         var hsc=wsc*9/16;
         $("#vdo").css({"height": hsc+"px"});
         $("#vdo").css({"width":  wsc + "px"});
-        vdoRandom();
+        
+        vedioPlay();
       }
-      function vdoRandom()
+      function vedioPlay()
       {
-        document.getElementById("vdo").src=vdArray[0];
+        a1 = Random();
+        let vdArray =["https://front.nptu.edu.tw/var/file/9/1009/img/video1.mp4","https://front.nptu.edu.tw/var/file/9/1009/img/video2.mp4","https://front.nptu.edu.tw/var/file/9/1009/img/3678/test.mp4"];
+        let vdo=document.getElementById("vdo");
+        if( count == 0)
+        {
+          count++;
+          vdo.src=vdArray[a1];
+        }
+        if(a1 == a2 && count)
+        {
+
+          if(a1 == 2)
+          {
+            a1=a1-2;
+          }
+          else if(a1!=2)
+          {
+            a1++;
+          }
+          vdo.src=vdArray[a1];
+          a2=a1;
+        }
+        else if(a1 !=a2)
+        {
+          vdo.src=vdArray[a1];
+          a2=a1;
+        }
       }
-    </script>
 
-    <video id="vdo" src="https://front.nptu.edu.tw/var/file/9/1009/img/video1.mp4" autoplay loop muted controls ontimeupdate="linkchange()" >
-      <source id="srcc" type="video/mp4" src="https://front.nptu.edu.tw/var/file/9/1009/img/video1.mp4">
+      function update()
+      {
+        let vdo=document.getElementById("vdo");
+        document.getElementById("current").innerText= "Current time : "+vdo.currentTime;
+        document.getElementById("duration").innerText= "Duration time : "+vdo.duration;
+        document.getElementById("count").innerHTML= "a1 : "+ a1 +"<br> a2 : " + a2 + "<br> count : " + count;
+      }
 
+      function Random()
+      {
+        let rnd= parseInt(Math.random()*10)%3;
+        return rnd;
+      }
+      
     </script>
+    <!--                                               Main                                               -->
+<video id="vdo" ontimeupdate="update()" onended="vedioPlay()" autoplay controls muted src="#">
+
+</video>
+<p id="duration">Duration time :</p>
+<p id="current">Current Time is </p>
+<p id="count"></p>
+
     
-    <video id="vdo" >
-
-    </video>
-
