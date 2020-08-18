@@ -1,4 +1,4 @@
-
+<link href="/var/file/9/1009/img/3680/all.css" rel="stylesheet">
 <style>
 
     .container {width: 100%; margin: 0px !important; padding: 0px !important;}
@@ -57,10 +57,15 @@
         opacity: 1;
       }
     }
-    #player
+    #base
     {
       position: relative;
       z-index: 0;
+    }
+    #player
+    {
+      position: absolute;
+      z-index: 4;
     }
     #image
     {
@@ -136,10 +141,17 @@
       display: none;
 
     }
-    </style>
-
+    #mute
+    {
+      position: absolute;
+      z-index: 65;
+      right: 10px;
+      margin-top: 10px;
+      
+    }
     
-
+    </style>
+    
 <script>
   //-------------------------------------Youtube-------------------------------------\\
   var tag = document.createElement('script');
@@ -148,6 +160,8 @@
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
   var imgArray=['https://front.nptu.edu.tw/var/file/9/1009/img/3679/004.png','https://front.nptu.edu.tw/var/file/9/1009/img/3679/003.png','https://front.nptu.edu.tw/var/file/9/1009/img/3679/002.png','https://front.nptu.edu.tw/var/file/9/1009/img/3679/001.png'];
   let rnd= parseInt(Math.random()*10)%4;
+  let startime= parseInt(Math.random()*10)%2;
+  let startArray=[0,39]
   //-------------------------------------variable-------------------------------------\\
   function disappeared()
   {
@@ -155,16 +169,16 @@
     document.getElementById("top").style.animation= "disappear2 10s forwards";
   }
 
+  var vdplayer;
   function onYouTubeIframeAPIReady() {
-  var player;
-  player = new YT.Player('player', {
+  vdplayer = new YT.Player('player', {
     videoId: 'zIrA9Uc4haQ', // 要播放的第一支YouTube 影片ID
     height: '1920',              // 播放器高度 (px)
     width: '1080',               // 播放器寬度 (px)
     playerVars: 
       {
       autoplay: 1,        // 在讀取時自動播放影片
-      controls: 0,        // 在播放器顯示暫停／播放按鈕
+      controls: 1,        // 在播放器顯示暫停／播放按鈕
       showinfo: 0,        // 隱藏影片標題
       modestbranding: 1,  // 隱藏YouTube Logo
       loop: 1,            // 讓影片循環播放
@@ -172,16 +186,36 @@
       fs: 0,              // 全螢幕按鈕
       cc_load_policty: 0, // 隱藏字幕
       iv_load_policy: 3,  // 隱藏影片註解
-      autohide: 0         // 當播放影片時隱藏影片控制列
+      autohide: 0,         // 當播放影片時隱藏影片控制列
+      start: startArray[startime]
     },
     events: {'onReady': onReady,'onStateChange': onStateChange}
   });
 
  }
-  function onReady(e)   
+  function onReady(event)   
   {
-    e.target.playVideo();
-    e.target.mute();
+    event.target.playVideo();
+    event.target.mute();
+  }
+  let mt=0;
+  function mute(e)
+  {
+    var classVal = document.getElementById("mute").getAttribute('class');
+    if(mt %2 == 0)
+    {
+      classVal = classVal.replace("fa-volume-down","fa-volume-mute");
+      document.getElementById("mute").setAttribute("class",classVal );
+      mt++;
+      vdplayer.mute();
+    }
+    else if(mt % 2 ==1)
+    {
+      classVal = classVal.replace("fa-volume-mute","fa-volume-down");
+      document.getElementById("mute").setAttribute("class",classVal );
+      mt = 0;
+      vdplayer.unMute();
+    }
   }
   function onStateChange(e)
   { 
@@ -191,22 +225,28 @@
   //-------------------------ReadyState----------------------------576
   document.onreadystatechange=function()
   {
-    let image = document.getElementById("image");
+    let images = document.getElementById("image");
     let mask = document.getElementById("mask");
+    let player = document.getElementById("player");
     var wsc=$(window).width();
     var hsc=wsc*9/16;
+    $("#base").css({"height": hsc+"px"});
+    $("#base").css({"width":  wsc + "px"});
     $("#mask").css({"height": hsc+"px"});
     $("#mask").css({"width":  wsc + "px"});
+    
     $("#image").css({"height": hsc+"px"});
     $("#image").css({"width":  wsc + "px"});
+    
     imageRandom();
 
-    //document.getElementById("size").innerText = wsc;
     if(wsc >= 1024)
     {
-      let player = document.getElementById("player");
       player.width=wsc;
       player.height=hsc;
+     
+      $("#mask").css({"height": hsc+"px"});
+      $("#mask").css({"width":  wsc + "px"});
       $("#top").css({"margin-top": 0 +"px"});
       $("#bottom").css({"margin-top": hsc-195 +"px"});
       $("#scLogo").css({"margin-top": hsc-170 +"px"});
@@ -221,7 +261,8 @@
       $("#mask").css({"height": hsc+"px"});
       $("#mask").css({"width":  wsc + "px"});
       document.getElementById("player").id="play";
-
+      $("#base").css({"height": hsc+"px"});
+      $("#base").css({"width":  wsc + "px"});
       $("#nptulink").css({"margin-top": hsc*1/10+"px"});
       $("#nptulink").css({"margin-left": "50px"});
       $("#nptulink").css({"font-size": "48pt"});
@@ -234,6 +275,8 @@
       image.style.height=hsc;
       $("#mask").css({"height": hsc+"px"});
       $("#mask").css({"width":  wsc + "px"});
+      $("#base").css({"height": hsc+"px"});
+      $("#base").css({"width":  wsc + "px"});
       document.getElementById("player").id="play";
       $("#nptulink").css({"margin-top": hsc*0.5/10+"px"});
       $("#nptulink").css({"margin-left": "50px"});
@@ -253,17 +296,27 @@
     var hsc=wsc*9/16;
     
     //document.getElementById("size").innerText = wsc;
+    
     if( wsc >= 1024 )
     {
       player.width=wsc;
       player.height=hsc;
+      $("#base").css({"height": hsc+"px"});
+      $("#base").css({"width":  wsc + "px"});
       $("#mask").css({"height": hsc+"px"});
       $("#mask").css({"width":  wsc + "px"});
+      $("#top").css({"margin-top": 0 +"px"});
+      $("#bottom").css({"margin-top": hsc-195 +"px"});
+      $("#scLogo").css({"margin-top": hsc-170 +"px"});
+      $("#scLogo").css({"margin-right": wsc*0.05 +"px"});
     }
+    
     else if( wsc < 1024 && wsc >= 576 )
     {
-      image.style.width=wsc;
-      image.style.height=hsc;
+      $("#base").css({"height": hsc+"px"});
+      $("#base").css({"width":  wsc + "px"});
+      $("#image").css({"height": hsc+"px"});
+      $("#image").css({"width":  wsc + "px"});
       $("#mask").css({"height": hsc+"px"});
       $("#mask").css({"width":  wsc + "px"});
       $("#nptulink").css({"margin-top": hsc*1/10+"px"});
@@ -275,8 +328,10 @@
 
     if(wsc <= 560)
     {
-      image.style.width=wsc;
-      image.style.height=hsc
+      $("#base").css({"height": hsc+"px"});
+      $("#base").css({"width":  wsc + "px"});
+      $("#image").css({"height": hsc+"px"});
+      $("#image").css({"width":  wsc + "px"});  
       $("#mask").css({"height": hsc+"px"});
       $("#mask").css({"width":  wsc + "px"});
       $("#nptulink").css({"margin-top": hsc*0.5/10+"px"});
@@ -298,6 +353,7 @@
   {
     document.location.href="https://www.nptu.edu.tw"
   }
+  
 </script>
   
 <div id="top"></div>
@@ -307,9 +363,17 @@
 <i>
   <a id="nptulink" href="https://www.nptu.edu.tw">National Pingtung University</a>
 </i>
+
+<img id="image">
 <span id="mask" style="background-color: rgba(90, 90, 90, 0.171);"></span>
+
+<!--
+  <img id="mute" src="/var/file/9/1009/img/1/mute_on.png" onclick="mute()">
+-->
+<i id="mute" onclick="mute()" class="fas fa-volume-mute fa-2x"></i>
 <img id="scbar" type="image/svg+xml" src="/var/file/9/1009/img/NPTU.svg"/>
 <img id="scLogo" src="https://front.nptu.edu.tw/var/file/9/1009/img/509526559.png">
-<img id="image">
+<p id="sec"></p>
 <div id="player"></div>
+<div id="base"></div>
 
