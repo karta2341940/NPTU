@@ -1,3 +1,10 @@
+//-------------------------------------------API VAR-------------------------------------\\
+var api_Test_Var=0;
+var api_Youtube_Vedio_ID="";
+var api_Rnd_Var=0;
+var api_Img_Array;
+var api_Start_Array;
+
 
   //-------------------------------------Youtube-------------------------------------\\
   var tag = document.createElement('script');
@@ -8,8 +15,6 @@
   let rnd= parseInt(Math.random()*10)%4;
   let startime= parseInt(Math.random()*10)%3;
   let startArray=[0,39,115]
-  //-------------------------------------------API VAR-------------------------------------\\
-  var TEST_Var=0;
   //-------------------------------------variable-------------------------------------\\
   function disappeared()
   {
@@ -21,17 +26,17 @@
   var vdplayer;
   function onYouTubeIframeAPIReady() {
   vdplayer = new YT.Player('player', {
-    videoId: 'zIrA9Uc4haQ', // 要播放的第一支YouTube 影片ID
+    videoId: api_Youtube_Vedio_ID, // 要播放的第一支YouTube 影片ID
     height: '1080',              // 播放器高度 (px)
     width: '1920',               // 播放器寬度 (px)
     playerVars: 
       {
       autoplay: 1,        // 在讀取時自動播放影片
-      controls: 1,        // 在播放器顯示暫停／播放按鈕
+      controls: 0,        // 在播放器顯示暫停／播放按鈕
       showinfo: 0,        // 隱藏影片標題
       modestbranding: 1,  // 隱藏YouTube Logo
       loop: 1,            // 讓影片循環播放
-      playlist: 'zIrA9Uc4haQ',  //要播放的第二支YouTube 影片ID，若要重複撥放同一個影片則設為同ID即可
+      playlist: api_Youtube_Vedio_ID,  //要播放的第二支YouTube 影片ID，若要重複撥放同一個影片則設為同ID即可
       fs: 0,              // 全螢幕按鈕
       cc_load_policty: 0, // 隱藏字幕
       iv_load_policy: 3,  // 隱藏影片註解
@@ -103,7 +108,6 @@
       $("#bottom").css({"margin-top": hsc-250 +"px"});
       $("#scLogo").css({"margin-top": hsc-170 +"px"});
       $("#scLogo").css({"margin-right": wsc*0.05 +"px"});
-
       if(!TEST_Var)
       {
         document.getElementById("image").style.display="none";
@@ -115,6 +119,10 @@
 
       image.style.width=wsc;
       image.style.height=hsc;
+      if(!TEST_Var)
+      {
+        document.getElementById("image").style.display="none";
+      }
       document.getElementById("bottom").style.display="none";
       $("#mask").css({"height": hsc+"px"});
       $("#mask").css({"width":  wsc + "px"});
@@ -126,10 +134,6 @@
       $("#nptulink").css({"font-size": "48pt"});
       $("#btnn").css({"margin-top": hsc*7/10+"px"});
       $("#btnn").css({"margin-left": "50px"});
-      if(!TEST_Var)
-      {
-        document.getElementById("image").style.display="none";
-      }
     }
     else if(wsc <= 576)
     {
