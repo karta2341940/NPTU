@@ -77,13 +77,13 @@
     let player = document.getElementById("player");
     var wsc=$(window).width();
     var hsc=wsc*9/16;
-    $("#sec").text(wsc);
+    $("#vdo").css({"height": hsc+"px"});
+    $("#vdo").css({"width":  wsc + "px"});
+    //$("#sec").text(hsc);
     $("#base").css({"height": hsc+"px"});
     $("#base").css({"width":  wsc + "px"});
     $("#mask").css({"height": hsc+"px"});
     $("#mask").css({"width":  wsc + "px"});
-    $("#vdo").css({"height": hsc+"px"});
-    $("#vdo").css({"width":  wsc + "px"});
     $("#image").css({"height": hsc+"px"});
     $("#image").css({"width":  wsc + "px"});
     
@@ -93,10 +93,12 @@
     {
       player.width=wsc;
       player.height=hsc;
+      $("#vdo").css({"height": hsc+"px"});
+      $("#vdo").css({"width":  wsc + "px"});
       $("#mask").css({"height": hsc+"px"});
       $("#mask").css({"width":  wsc + "px"});
       $("#top").css({"margin-top": 0 +"px"});
-      $("#bottom").css({"margin-top": hsc-195 +"px"});
+      $("#bottom").css({"margin-top": hsc-250 +"px"});
       $("#scLogo").css({"margin-top": hsc-170 +"px"});
       $("#scLogo").css({"margin-right": wsc*0.05 +"px"});
     }
@@ -106,6 +108,7 @@
 
       image.style.width=wsc;
       image.style.height=hsc;
+      document.getElementById("bottom").style.display="none";
       $("#mask").css({"height": hsc+"px"});
       $("#mask").css({"width":  wsc + "px"});
       document.getElementById("player").id="play";
@@ -121,6 +124,7 @@
     {
       image.style.width=wsc;
       image.style.height=hsc;
+      document.getElementById("bottom").style.display="none";
       $("#mask").css({"height": hsc+"px"});
       $("#mask").css({"width":  wsc + "px"});
       $("#base").css({"height": hsc+"px"});
