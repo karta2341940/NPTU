@@ -137,15 +137,23 @@ function YTPlayer(YT_Player,Heigh,Width,Start_Time_Array)
   YT_Start_Time_Array=Start_Time_Array;
 }
 /**
- * 
+ * To type in switch-code to determin whether the youtube_api work
  * @param {boolean} switchCode 
  */
 function YTSwitch(switchCode)
 {
   YTswitch=switchCode;
+  if(switchCode)
+  {
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  }
 }
 
 //-------------------------------------------Youtube API---------------------------------------\\
+
 function onYoutubeIframeAPIReady()
 {
   if(YTSwitch)
@@ -165,6 +173,7 @@ function onYoutubeIframeAPIReady()
         loop: 1,            // 讓影片循環播放
         playlist: api_Youtube_Vedio_ID,  //要播放的第二支YouTube 影片ID，若要重複撥放同一個影片則設為同ID即可
         fs: 0,              // 全螢幕按鈕
+        playsinline: 1,     //This parameter controls whether vedios play inline or fullscreen
         cc_load_policty: 0, // 隱藏字幕
         iv_load_policy: 3,  // 隱藏影片註解
         autohide: 0,         // 當播放影片時隱藏影片控制列

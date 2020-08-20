@@ -7,7 +7,7 @@
   var imgArray=['https://front.nptu.edu.tw/var/file/9/1009/img/3679/004.png','https://front.nptu.edu.tw/var/file/9/1009/img/3679/003.png','https://front.nptu.edu.tw/var/file/9/1009/img/3679/002.png','https://front.nptu.edu.tw/var/file/9/1009/img/3679/001.png'];
   let rnd= parseInt(Math.random()*10)%4;
   let startime= parseInt(Math.random()*10)%3;
-  let startArray=[0,39,115]
+  let startArray=[0,39,115];
   //-------------------------------------------API VAR-------------------------------------\\
   var TEST_Var=0;
   //-------------------------------------variable-------------------------------------\\
