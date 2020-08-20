@@ -168,23 +168,23 @@
     {
       player.width=wsc;
       player.height=hsc;
-      $("#base").css({"height": hsc-60+"px"});
+      $("#base").css({"height": hsc+"px"});
       $("#base").css({"width":  wsc + "px"});
-      $("#mask").css({"height": hsc-60+"px"});
+      $("#mask").css({"height": hsc+"px"});
       $("#mask").css({"width":  wsc + "px"});
       $("#top").css({"margin-top": 0 +"px"});
-      $("#bottom").css({"margin-top": hsc-190 +"px"});
+      $("#bottom").css({"margin-top": hsc-195 +"px"});
       $("#scLogo").css({"margin-top": hsc-170 +"px"});
       $("#scLogo").css({"margin-right": wsc*0.05 +"px"});
     }
     
     else if( wsc < 1024 && wsc >= 576 )
     {
-      $("#base").css({"height": hsc-60+"px"});
+      $("#base").css({"height": hsc+"px"});
       $("#base").css({"width":  wsc + "px"});
-      $("#image").css({"height": hsc-60+"px"});
+      $("#image").css({"height": hsc+"px"});
       $("#image").css({"width":  wsc + "px"});
-      $("#mask").css({"height": hsc-60+"px"});
+      $("#mask").css({"height": hsc+"px"});
       $("#mask").css({"width":  wsc + "px"});
       $("#nptulink").css({"margin-top": hsc*1/10+"px"});
       $("#nptulink").css({"margin-left": "50px"});
@@ -195,11 +195,11 @@
 
     if(wsc <= 560)
     {
-      $("#base").css({"height": hsc-60+"px"});
+      $("#base").css({"height": hsc+"px"});
       $("#base").css({"width":  wsc + "px"});
-      $("#image").css({"height": hsc-60+"px"});
+      $("#image").css({"height": hsc+"px"});
       $("#image").css({"width":  wsc + "px"});  
-      $("#mask").css({"height": hsc-60+"px"});
+      $("#mask").css({"height": hsc+"px"});
       $("#mask").css({"width":  wsc + "px"});
       $("#nptulink").css({"margin-top": hsc*0.5/10+"px"});
       $("#nptulink").css({"margin-left": "50px"});
