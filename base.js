@@ -82,11 +82,11 @@
     $("#vdo").css({"height": hsc+"px"});
     $("#vdo").css({"width":  wsc + "px"});
     //$("#sec").text(hsc);
-    $("#base").css({"height": hsc+"px"});
+    $("#base").css({"height": hsc-60+"px"});
     $("#base").css({"width":  wsc + "px"});
-    $("#mask").css({"height": hsc+"px"});
+    $("#mask").css({"height": hsc-60+"px"});
     $("#mask").css({"width":  wsc + "px"});
-    $("#image").css({"height": hsc+"px"});
+    $("#image").css({"height": hsc-60+"px"});
     $("#image").css({"width":  wsc + "px"});
     
     imageRandom();
@@ -97,11 +97,11 @@
       player.height=hsc;
       $("#vdo").css({"height": hsc+"px"});
       $("#vdo").css({"width":  wsc + "px"});
-      $("#mask").css({"height": hsc+"px"});
+      $("#mask").css({"height": hsc-60+"px"});
       $("#mask").css({"width":  wsc + "px"});
       $("#top").css({"margin-top": 0 +"px"});
-      $("#bottom").css({"margin-top": hsc-250 +"px"});
-      $("#scLogo").css({"margin-top": hsc-170 +"px"});
+      $("#bottom").css({"margin-top": hsc-190 +"px"});
+      $("#scLogo").css({"margin-top": hsc-110 +"px"});
       $("#scLogo").css({"margin-right": wsc*0.05 +"px"});
 
       if(!TEST_Var)
@@ -116,10 +116,10 @@
       image.style.width=wsc;
       image.style.height=hsc;
       document.getElementById("bottom").style.display="none";
-      $("#mask").css({"height": hsc+"px"});
+      $("#mask").css({"height": hsc-60+"px"});
       $("#mask").css({"width":  wsc + "px"});
       document.getElementById("player").id="play";
-      $("#base").css({"height": hsc+"px"});
+      $("#base").css({"height": hsc-60+"px"});
       $("#base").css({"width":  wsc + "px"});
       $("#nptulink").css({"margin-top": hsc*1/10+"px"});
       $("#nptulink").css({"margin-left": "50px"});
@@ -140,9 +140,9 @@
         document.getElementById("image").style.display="none";
       }
       document.getElementById("bottom").style.display="none";
-      $("#mask").css({"height": hsc+"px"});
+      $("#mask").css({"height": hsc-60+"px"});
       $("#mask").css({"width":  wsc + "px"});
-      $("#base").css({"height": hsc+"px"});
+      $("#base").css({"height": hsc-60+"px"});
       $("#base").css({"width":  wsc + "px"});
       document.getElementById("player").id="play";
       $("#nptulink").css({"margin-top": hsc*0.5/10+"px"});

@@ -16,7 +16,7 @@ let YTswitch=0;              //For Youtube
 
 /**
  * You can use this function to Play an Animation
- * @param ID The object ID that you want it appeares animation
+ * @param {string} ID The object ID that you want it appeares animation
  * @param Animation_Name The name of your customized Animation
  * @param Second The second that you want it keep
  * @param Mode The Animaion mode . You can chooes : none | forwards | backwards | both 
@@ -44,7 +44,7 @@ function goto(href,open_new_window)
 }
 /**
  * This function is for random play vedio or display picture
- * @param ID The object ID that you want it random play
+ * @param {string} ID The object ID that you want it random play
  * @param api_Img_Array Input image array that it will display by random 
  */
 function api_Media_Random(ID,api_Img_Array)
@@ -84,7 +84,7 @@ function api_Media_Random(ID,api_Img_Array)
 }
 /**
  * This function is for random play vedio or appear picture
- * @param ID The object ID that you want it random play
+ * @param {string} ID The object ID that you want it random play
  * @param api_Vedio_Array Input vedio array to random play
  */
 function api_Media_Random(ID,api_Vedio_Array)
@@ -123,6 +123,18 @@ function api_Media_Random(ID,api_Vedio_Array)
   }
 }
 /**
+ * To change the text that in your button
+ * @param {string} ID 
+ * @param {string} Text
+ */
+function api_Ad_Btn(ID,Text)
+{
+  let btn=document.getElementById(ID);
+  btn.innerText=Text;
+}
+
+//-------------------------------------------Youtube API---------------------------------------\\
+/**
  * Use this function to typing the parameter to ensure the window size and the Start second
  * @param {*} YT_Player The div which you want to play youtube vedio id
  * @param {*} Height The Height of youtube window
@@ -151,8 +163,6 @@ function YTSwitch(switchCode)
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
   }
 }
-
-//-------------------------------------------Youtube API---------------------------------------\\
 
 function onYoutubeIframeAPIReady()
 {
