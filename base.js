@@ -7,9 +7,7 @@
   var imgArray=['https://front.nptu.edu.tw/var/file/9/1009/img/3679/004.png','https://front.nptu.edu.tw/var/file/9/1009/img/3679/003.png','https://front.nptu.edu.tw/var/file/9/1009/img/3679/002.png','https://front.nptu.edu.tw/var/file/9/1009/img/3679/001.png'];
   let rnd= parseInt(Math.random()*10)%4;
   let startime= parseInt(Math.random()*10)%3;
-  let startArray=[0,39,115];
-  //-------------------------------------------API VAR-------------------------------------\\
-  var TEST_Var=0;
+  let startArray=[0,39,115]
   //-------------------------------------variable-------------------------------------\\
   function disappeared()
   {
@@ -21,21 +19,21 @@
   var vdplayer;
   function onYouTubeIframeAPIReady() {
   vdplayer = new YT.Player('player', {
-    videoId: 'zIrA9Uc4haQ', // 要播放的第一支YouTube 影片ID
-    height: '1080',              // 播放器高度 (px)
-    width: '1920',               // 播放器寬度 (px)
+    videoId: 'zIrA9Uc4haQ', 
+    height: '1080',  
+    width: '1920',   
     playerVars: 
       {
-      autoplay: 1,        // 在讀取時自動播放影片
-      controls: 1,        // 在播放器顯示暫停／播放按鈕
-      showinfo: 0,        // 隱藏影片標題
-      modestbranding: 1,  // 隱藏YouTube Logo
-      loop: 1,            // 讓影片循環播放
-      playlist: 'zIrA9Uc4haQ',  //要播放的第二支YouTube 影片ID，若要重複撥放同一個影片則設為同ID即可
-      fs: 0,              // 全螢幕按鈕
-      cc_load_policty: 0, // 隱藏字幕
-      iv_load_policy: 3,  // 隱藏影片註解
-      autohide: 0,         // 當播放影片時隱藏影片控制列
+      autoplay: 1,  
+      controls: 1,       
+      showinfo: 0,   
+      modestbranding: 1,
+      loop: 1,       
+      playlist: 'zIrA9Uc4haQ',
+      fs: 0,              
+      cc_load_policty: 0, 
+      iv_load_policy: 3,  
+      autohide: 0,         
       start: startArray[startime]
     },
     events: {'onReady': onReady,'onStateChange': onStateChange}
@@ -82,11 +80,11 @@
     $("#vdo").css({"height": hsc+"px"});
     $("#vdo").css({"width":  wsc + "px"});
     //$("#sec").text(hsc);
-    $("#base").css({"height": hsc-60+"px"});
+    $("#base").css({"height": hsc+"px"});
     $("#base").css({"width":  wsc + "px"});
-    $("#mask").css({"height": hsc-60+"px"});
+    $("#mask").css({"height": hsc+"px"});
     $("#mask").css({"width":  wsc + "px"});
-    $("#image").css({"height": hsc-60+"px"});
+    $("#image").css({"height": hsc+"px"});
     $("#image").css({"width":  wsc + "px"});
     
     imageRandom();
@@ -97,17 +95,12 @@
       player.height=hsc;
       $("#vdo").css({"height": hsc+"px"});
       $("#vdo").css({"width":  wsc + "px"});
-      $("#mask").css({"height": hsc-60+"px"});
+      $("#mask").css({"height": hsc+"px"});
       $("#mask").css({"width":  wsc + "px"});
       $("#top").css({"margin-top": 0 +"px"});
-      $("#bottom").css({"margin-top": hsc-190 +"px"});
-      $("#scLogo").css({"margin-top": hsc-110 +"px"});
+      $("#bottom").css({"margin-top": hsc-250 +"px"});
+      $("#scLogo").css({"margin-top": hsc-170 +"px"});
       $("#scLogo").css({"margin-right": wsc*0.05 +"px"});
-
-      if(!TEST_Var)
-      {
-        document.getElementById("image").style.display="none";
-      }
     }
 
     if( wsc < 1024 && wsc >= 576)
@@ -116,33 +109,25 @@
       image.style.width=wsc;
       image.style.height=hsc;
       document.getElementById("bottom").style.display="none";
-      $("#mask").css({"height": hsc-60+"px"});
+      $("#mask").css({"height": hsc+"px"});
       $("#mask").css({"width":  wsc + "px"});
       document.getElementById("player").id="play";
-      $("#base").css({"height": hsc-60+"px"});
+      $("#base").css({"height": hsc+"px"});
       $("#base").css({"width":  wsc + "px"});
       $("#nptulink").css({"margin-top": hsc*1/10+"px"});
       $("#nptulink").css({"margin-left": "50px"});
       $("#nptulink").css({"font-size": "48pt"});
       $("#btnn").css({"margin-top": hsc*7/10+"px"});
       $("#btnn").css({"margin-left": "50px"});
-      if(!TEST_Var)
-      {
-        document.getElementById("image").style.display="none";
-      }
     }
     else if(wsc <= 576)
     {
       image.style.width=wsc;
       image.style.height=hsc;
-      if(!TEST_Var)
-      {
-        document.getElementById("image").style.display="none";
-      }
       document.getElementById("bottom").style.display="none";
-      $("#mask").css({"height": hsc-60+"px"});
+      $("#mask").css({"height": hsc+"px"});
       $("#mask").css({"width":  wsc + "px"});
-      $("#base").css({"height": hsc-60+"px"});
+      $("#base").css({"height": hsc+"px"});
       $("#base").css({"width":  wsc + "px"});
       document.getElementById("player").id="play";
       $("#nptulink").css({"margin-top": hsc*0.5/10+"px"});
