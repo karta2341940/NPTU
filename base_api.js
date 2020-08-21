@@ -1,4 +1,5 @@
-//-------------------------------------------API VAR-------------------------------------\\
+
+  //-------------------------------------------API VAR-------------------------------------\\
 var api_Test_Var=0;
 var api_Youtube_Vedio_ID="";
 /**
@@ -12,6 +13,30 @@ let YTHeigh=0;
 let YTWidth=0;
 let YT_Start_Time_Array;     //For Youtube
 let YTswitch=0;              //For Youtube
+//----------------------------------------Ready----------------------------------------\\
+document.onreadystatechange=function()
+{
+  /*
+  let fsc=document.getElementsByClassName("fullsc");
+  let fw=document.getElementsByClassName("fullw");
+  let fh=document.getElementsByClassName("fullh");
+  */
+  let wsc=$(window).width();
+  let hsc=wsc*9/16;
+  $(".fsc").css({"height": hsc+"px","width": wsc+"px"});
+  $(".fw").css({"width": wsc+"px"});
+  $(".fh").css({"height": hsc+"px"});
+  
+
+}
+//----------------------------------------Resize--------------------------------------\\
+window.onresize=function()
+{
+  let fd=document.getElementsByClassName("resizable");
+  let fh=document.getElementsByClassName("resizable");
+  let wsc=$(window).width();
+  let hsc=wsc*9/16;
+}
 //----------------------------------------API Function----------------------------------\\
 
 /**
@@ -37,11 +62,11 @@ function goto(href,open_new_window)
 {
   if(open_new_window)
   {
-    window.open(href);
+    window.open(href[a1]);
   }
   else if(!open_new_window)
   {
-    document.location.href=href;
+    document.location.href=href[a1];
   }
 }
 
@@ -51,14 +76,15 @@ function goto(href,open_new_window)
  * @param {string} ID The object ID that you want it random play
  * @param api_Img_Array Input image array that it will display by random 
  */
-function api_Media_Random_no_Link(ID,api_Img_Array,)
+function api_Media_Random_no_btn(ID,api_Img_Array,)
 {
   let leng=api_Img_Array.length;
-  let rnd = parseInt(Math.random*10)%leng;
+  let vdo = document.getElementById(ID);
+  let rnd = parseInt(Math.random()*10)%leng;
   a1=rnd;
   if(count)
   {
-    document.getElementById(ID).src=api_Img_Array[rnd];
+    vdo.src=api_Img_Array[rnd];
     a2=rnd;
     count--;
   }
@@ -67,24 +93,14 @@ function api_Media_Random_no_Link(ID,api_Img_Array,)
     if(a1 == a2)
     {
       if(a1 == 0)
-      {
-        a1++;
-        document.getElementById(ID).src=api_Img_Array[a2];
-        a2=a1;
-      }
+      {a1++;}
       else if(a1 == leng-1)
-      {
-        a1--;
-        document.getElementById(ID).src=api_Img_Array[a2];
-        a2=a1;
-      }
-    }
-    else if(a1 > a2 || a1 < a2)
-    {
-      document.getElementById(ID).src=api_Img_Array[a1];
-      a2=a1;
+      {a1--;}
     }
   }
+
+  $(ID).attr("src",api_Img_Array[a1])
+  a2=a1;
 }
 
 
@@ -93,20 +109,17 @@ function api_Media_Random_no_Link(ID,api_Img_Array,)
  * @param {string} ID The picture tag's ID
  * @param {Array} api_Img_Array The Vedio Array that you wanna play
  * @param {string} btnID Button's ID
- * @param {Array} btn_text_Array The text array you want it show 
- * @param {Array} Link_Array The link array you want it show 
- * @param {boolean} open_new_window Whether you want to open a new window
+ * @param {Array} btn_text_Array The text array you want it show
  */
-function api_Media_Random(ID,api_Img_Array,btnID,btn_text_Array,Link_Array,open_new_window)
+function api_Media_Random(ID,api_Img_Array,btnID,btn_text_Array)
 {
+  //decalere
   let leng=api_Img_Array.length;
-  let rnd = parseInt(Math.random*10)%leng;
+  let rnd = parseInt(Math.random()*10)%leng;
   a1=rnd;
+
   if(count)
   {
-    document.getElementById(ID).src=api_Img_Array[a1];
-    api_Ad_Btn(btnID,btn_text_Array[a1],Link_Array[a1],open_new_window);
-    a2=rnd;
     count--;
   }
   else if(!count)
@@ -116,40 +129,16 @@ function api_Media_Random(ID,api_Img_Array,btnID,btn_text_Array,Link_Array,open_
       if(a1 == 0)
       {
         a1++;
-        document.getElementById(ID).src=api_Img_Array[a2];
-        api_Ad_Btn(ID,btn_text_Array[a2]);
-        a2=a1;
       }
       else if(a1 == leng-1)
       {
         a1--;
-        document.getElementById(ID).src=api_Img_Array[a2];
-        api_Ad_Btn(ID,btn_text_Array[a2]);
-        a2=a1;
       }
     }
-    else if(a1 > a2 || a1 < a2)
-    {
-      document.getElementById(ID).src=api_Img_Array[a1];
-      api_Ad_Btn(ID,btn_text_Array[a1]);
-      a2=a1;
-    }
   }
-}
-
-
-/**
- * To change the text that in your button
- * @param {string} ID The button ID that you want it change text
- * @param {string} Text The text you want it display
- * @param {string} href The link what you want it been
- * @param {boolean} open_new_window Whether you want it open a new window
- */
-function api_Ad_Btn(ID,Text,href,open_new_window)
-{
-  let btn=document.getElementById(ID);
-  btn.innerText=Text;
-  goto(href,open_new_window);
+  $(ID).attr("src",api_Img_Array[a1]);
+  $(btnID).text(btn_text_Array[a1]);
+  a2=a1;
 }
 
 
@@ -188,7 +177,7 @@ function onYoutubeIframeAPIReady()
 {
   if(YTSwitch)
   {   
-    let Time = parseInt(Math.random*10)%api_Start_Time_Array.length;           //For Youtube
+    let Time = parseInt(Math.random()*10)%api_Start_Time_Array.length;           //For Youtube
     
     vdplayer=new YT.Player(Player,{
     videoId: api_Youtube_Vedio_ID, // 要播放的第一支YouTube 影片ID
@@ -216,6 +205,5 @@ function onYoutubeIframeAPIReady()
     });
   }
 }
-
 
 
