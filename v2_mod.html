@@ -1,4 +1,5 @@
-//-------------------------------------------API VAR-------------------------------------\\
+<script>
+    //-------------------------------------------API VAR-------------------------------------\\
 var api_Test_Var=0;
 var api_Youtube_Vedio_ID="";
 /**
@@ -197,7 +198,7 @@ function onYoutubeIframeAPIReady()
     playerVars: 
       {
         autoplay: 1,        // 在讀取時自動播放影片
-        controls: 0,        // 在播放器顯示暫停／播放按鈕
+        controls: 1,        // 在播放器顯示暫停／播放按鈕
         showinfo: 0,        // 隱藏影片標題
         modestbranding: 1,  // 隱藏YouTube Logo
         loop: 1,            // 讓影片循環播放
@@ -219,3 +220,16 @@ function onYoutubeIframeAPIReady()
 
 
 
+
+</script>
+
+<script>
+    let vdArray =["/var/file/9/1009/img/3678/v01.477p.x264.aac.mp4","/var/file/9/1009/img/3678/v02.477p.x264.aac.mp4","/var/file/9/1009/img/3678/v03.477p.x264.aac.mp4"];
+    let linkArray=[""];
+    let btnTextArray=[""];
+    
+</script>
+
+
+<button type="button" class="btn" id="ad_btn">進入校首頁</button>
+<video id="vdo" onended="api_Media_Random(vdo,vdArray,ad_btn,btnTextArray,linkArray,0)" autoplay playsinline controls muted src="/var/file/9/1009/img/3678/v02.477p.x264.aac.mp4"></video>
