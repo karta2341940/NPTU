@@ -1,6 +1,9 @@
 
   //-------------------------------------------API VAR-------------------------------------\\
 var api_Test_Var=0;
+/**
+ * @param {string} api_Youtube_Vedio_ID The Youtube ID
+ */
 var api_Youtube_Vedio_ID="";
 /**
  * @param {object} vdplayer to use Youtube function
@@ -8,11 +11,16 @@ var api_Youtube_Vedio_ID="";
 var vdplayer;
 //-----------------------------------------Inside var----------------------------------\\
 let Player;
-let a1=0,a2=0,count=1;
+let a1=1,a2=0,count=1;
 let YTHeigh=0;
 let YTWidth=0;
 let YT_Start_Time_Array;     //For Youtube
 let YTswitch=0;              //For Youtube
+let mt=1;                    //For Youtube
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 //----------------------------------------Ready----------------------------------------\\
 document.onreadystatechange=function()
 {
@@ -150,7 +158,7 @@ function api_Media_Random(ID,api_Img_Array,btnID,btn_text_Array)
  * @param {*} Width The Width of youtube window
  * @param {string} Start_Time_Array The array of the random start time
  */
-function YTPlayer(YT_Player,Heigh,Width,Start_Time_Array)
+function YTPlayer(YT_Player,Width,Heigh,Start_Time_Array)
 {
   Player=document.getElementById(YT_Player);
   YTHeigh=Heigh;
@@ -161,21 +169,10 @@ function YTPlayer(YT_Player,Heigh,Width,Start_Time_Array)
  * To type in switch-code to determin whether the youtube_api work
  * @param {boolean} switchCode 
  */
-function YTSwitch(switchCode)
-{
-  YTswitch=switchCode;
-  if(switchCode)
-  {
-    var tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  }
-}
 
 function onYoutubeIframeAPIReady()
 {
-  if(YTSwitch)
+  if(YTswitch)
   {   
     let Time = parseInt(Math.random()*10)%api_Start_Time_Array.length;           //For Youtube
     
