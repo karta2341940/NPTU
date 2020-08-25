@@ -181,6 +181,7 @@ detect();
     function onStateChange(event)
     {
       //$(".mk").css({"display": "inline"});
+      event.target.playVideo();
       document.getElementById("image").style.animation = "disappear 6s forwards";
       document.getElementById("top").style.animation= "disappear2 10s forwards";
       document.getElementById("mute").style.display="inline";
