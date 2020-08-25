@@ -15,6 +15,7 @@ var width=1920;
 var height = 1080;
 var startTime=[0,41,64,86,111];
 var imgArray=['/var/file/9/1009/img/3679/004.png','/var/file/9/1009/img/3679/003.png','/var/file/9/1009/img/3679/002.png','/var/file/9/1009/img/3679/001.png'];
+var Debug_mod=1;
 
 </script>
 
@@ -128,7 +129,8 @@ function randomImage()
   let rnd = parseInt(Math.random()*10%imgArray.length)
   document.getElementById("image").src=imgArray[rnd];
 }
-randomImage();
+if(Debug_mod)
+{randomImage();}
 
 function detect(){if($(window).width()<=991){YTswitch=0;}}
 detect();
@@ -158,6 +160,7 @@ detect();
             autoplay: 1,
             control: 0,
             showinfo:0,
+            disablekb:1,
             modestbranding: 1,
             fs: 0,
             cc_load_policty: 0,
@@ -175,16 +178,38 @@ detect();
     }
     function onReady(event) 
     {
-      event.target.playVideo();
+      console.log("onReady ok");
+      player.playVideo();
+      console.log("Vedio Play");
       event.target.mute();
     }
     function onStateChange(event)
     {
       //$(".mk").css({"display": "inline"});
-      event.target.playVideo();
-      document.getElementById("image").style.animation = "disappear 6s forwards";
-      document.getElementById("top").style.animation= "disappear2 10s forwards";
-      document.getElementById("mute").style.display="inline";
+      console.log("onstatechange loading");
+      if(event.data == 2)
+      {
+        console.log(event.data);
+        player.playVideo();
+        document.getElementById("image").style.animation = "disappear 6s forwards";
+        document.getElementById("top").style.animation= "disappear2 10s forwards";
+        document.getElementById("mute").style.display="inline";
+      }
+      else if(event.data == 1)
+      {
+        console.log(event.data);
+        document.getElementById("image").style.animation = "disappear 6s forwards";
+        document.getElementById("top").style.animation= "disappear2 10s forwards";
+        document.getElementById("mute").style.display="inline";
+      }
+      else 
+      {
+        console.log(event.data);
+        player.playVideo();
+        document.getElementById("image").style.animation = "disappear 6s forwards";
+        document.getElementById("top").style.animation= "disappear2 10s forwards";
+        document.getElementById("mute").style.display="inline";
+      }
     }
     let mt=1;
   function mute(e)
