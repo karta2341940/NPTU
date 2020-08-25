@@ -1,18 +1,16 @@
 <link href="/var/file/9/1009/img/3681/base_mini.css" rel="stylesheet">
 <link href="/var/file/9/1009/img/3680/all.css" rel="stylesheet">
-
-<script src="/var/file/9/1009/img/3681/base_api.js"></script>
 <!--
 -->
 <style>
   
   #vdo
   {
-    z-index: 0;
     width: 100%;
   }
   #adbtn
   {
+    position: absolute;
     z-index: 20;
     margin-top: 30%;
     margin-left: 1%;
@@ -268,7 +266,7 @@ function btnClick()
   goto(linkArray,0);
 }
 </script>
-
+<div id=""></div>
 <button type="button" class="btn vdbtn" onclick="btnClick()" id="adbtn"><i class="fas fa-info"></i>了解更多..</button>
 <p id="abc"></p>
 <video id="vdo" class="resizeable fsc" ontimeupdate="update()" onended="vedioPlay()" autoplay playsinline controls muted src="/var/file/9/1009/img/3678/v02.477p.x264.aac.mp4"></video>

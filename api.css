@@ -15,49 +15,7 @@
     .container{width: 100% !important;}
 }
 
-@keyframes disappear{ 
-    0% { 
-     opacity: 1; 
-    }
-    75% { 
-     opacity: 0; 
-    }
-    100% { 
-     opacity: 0; 
-    }
-    } 
-    @keyframes disappear2{ 
-    0% { 
-     opacity: 1; 
-    }
-    25%
-    {
-      opacity: 1; 
-    }
-    50% { 
-     opacity: 0.8; 
-    }
-    75% { 
-     opacity: 0.6; 
-    }
-     100% { 
-     opacity: 0; 
-    }
-    }
-    @keyframes appear{ 
-      0% 
-      { 
-        opacity: 0; 
-      }
-      50%
-      {
-        opacity: 0.1;
-      }
-      100%
-      {
-        opacity: 1;
-      }
-    }
+
     .btn
     {
         border-color: rgba(255, 255, 255, 0.767);
