@@ -21,32 +21,6 @@ var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-//----------------------------------------Ready----------------------------------------\\
-document.onreadystatechange=function()
-{
-  /*
-  let fsc=document.getElementsByClassName("fullsc");
-  let fw=document.getElementsByClassName("fullw");
-  let fh=document.getElementsByClassName("fullh");
-  */
-  let wsc=$(window).width();
-  let hsc=wsc*9/16;
-  $(".fsc").css({"height": hsc+"px","width": wsc+"px"});
-  $(".fw").css({"width": wsc+"px"});
-  $(".fh").css({"height": hsc+"px"});
-  
-
-}
-//----------------------------------------Resize--------------------------------------\\
-window.onresize=function()
-{
-  let fd=document.getElementsByClassName("resizable");
-  let fh=document.getElementsByClassName("resizable");
-  let wsc=$(window).width();
-  let hsc=wsc*9/16;
-}
-//----------------------------------------API Function----------------------------------\\
-
 /**
  * You can use this function to Play an Animation
  * @param {string} ID The object ID that you want it appeares animation

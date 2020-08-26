@@ -1,273 +1,114 @@
 <link href="/var/file/9/1009/img/3681/base_mini.css" rel="stylesheet">
 <link href="/var/file/9/1009/img/3680/all.css" rel="stylesheet">
+<!--------------------------------------Bootstrap-------------------------------------->
+
+  
+<!-------------------------------------------Bootstrap------------------------------------------->
 <!--
 -->
+<!--Change-->
+<script>
+var linkArray=['http://www.ccs.nptu.edu.tw','https://www.nptu.edu.tw','http://www.ugsi2usr.nptu.edu.tw'];
+var vdArray =["/var/file/9/1009/img/3678/v01.477p.x264.aac.mp4","/var/file/9/1009/img/3678/v02.477p.x264.aac.mp4","/var/file/9/1009/img/3678/v03.477p.x264.aac.mp4"];
+var btntextArray=['屏東大學資訊學院','了解更多..','高教深耕計畫'];
+
+</script>
 <style>
-  
-  #vdo
-  {
-    width: 100%;
-  }
-  #adbtn
-  {
-    position: absolute;
-    z-index: 20;
-    margin-top: 30%;
-    margin-left: 1%;
-    font-size: 1.3vw;
-  }
-  
-  @media (max-width: 375px)
-  {
-    #adbtn
-    {
-      z-index: 20;
-      margin-top: 40%;
-      margin-left: 1%;
-      font-size: 2.5vw;
-    }
-  }
+.mod_row1{   width: 100%;    height: 75vh;text-align: center;float: left;}
+.mod_row2{   width: 50%;     height: 75vh;text-align: center;float: left;}
+.mod_row3{   width: 33.333%; height: 75vh;text-align: center;float: left;}
+.mod_row3_2{ width: 66.666%; height: 75vh;text-align: center;float: left;}
+.mod_row4{   width: 25%;     height: 75vh;text-align: center;float: left;}
+.mod_row4_3{ width: 75%;     height: 75vh;text-align: center;float: left;}
+.mod_row5{   width: 20%;     height: 75vh;text-align: center;float: left;}
+.mod_row5_2{ width: 40%;     height: 75vh;text-align: center;float: left;}
+.mod_row5_3{ width: 60%;     height: 75vh;text-align: center;float: left;}
+.mod_row5_4{ width: 80%;     height: 75vh;text-align: center;float: left;}
+.mod_row6{   width: 16.6666%;height: 75vh;text-align: center;float: left;}
+.mod_row6_5{ width: 83.3333%;height: 75vh;text-align: center;float: left;}
+.mod_row8{   width: 12.5%;   height: 75vh;text-align: center;float: left;}
+.mod_row8_3{ width: 37.5%;   height: 75vh;text-align: center;float: left;}
+.mod_row8_5{ width: 62.5%;   height: 75vh;text-align: center;float: left;}
+.mod_row8_7{ width: 87.5%;   height: 75vh;text-align: center;float: left;}
+.mod_row12{  width: 8.33333%;height: 75vh;text-align: center;float: left;}
+.mod_row16{  width: 6.25%;   height: 75vh;text-align: center;float: left;}
+.mod_rowA{   width: auto;    height: 75vh;text-align: center;float: left;}
+
+
+@media (max-width: 1200px)
+{
+.mod_row1   {width: 100%;    height: auto;text-align: center;float: left;}
+.mod_row2   {width: 50%;     height: auto;text-align: center;float: left;}
+.mod_row3   {width: 33.333%; height: auto;text-align: center;float: left;}
+.mod_row3_2 {width: 66.666%; height: auto;text-align: center;float: left;}
+.mod_row4   {width: 25%;     height: auto;text-align: center;float: left;}
+.mod_row4_3 {width: 75%;     height: auto;text-align: center;float: left;}
+.mod_row5   {width: 20%;     height: auto;text-align: center;float: left;}
+.mod_row5_2 {width: 40%;     height: auto;text-align: center;float: left;}
+.mod_row5_3 {width: 60%;     height: auto;text-align: center;float: left;}
+.mod_row5_4 {width: 80%;     height: auto;text-align: center;float: left;}
+.mod_row6   {width: 16.6666%;height: auto;text-align: center;float: left;}
+.mod_row6_5 {width: 83.3333%;height: auto;text-align: center;float: left;}
+.mod_row8   {width: 12.5%;   height: auto;text-align: center;float: left;}
+.mod_row8_3 {width: 37.5%;   height: auto;text-align: center;float: left;}
+.mod_row8_5 {width: 62.5%;   height: auto;text-align: center;float: left;}
+.mod_row8_7 {width: 87.5%;   height: auto;text-align: center;float: left;}
+.mod_row12  {width: 8.33333%;height: auto;text-align: center;float: left;}
+.mod_row16  {width: 6.25%;   height: auto;text-align: center;float: left;}
+.mod_rowA   {width: auto;    height: auto;text-align: center;float: left;}
+#right{float: right;}
+}
 </style>
 
-<!--
-<script>
-  
-  //-------------------------------------------API VAR-------------------------------------\\
-var api_Test_Var=0;
-var api_Youtube_Vedio_ID="";
-/**
- * @param {object} vdplayer to use Youtube function
- */
-var vdplayer;
-//-----------------------------------------Inside var----------------------------------\\
-let Player;
-let a1=0,a2=0,count=1;
-let YTHeigh=0;
-let YTWidth=0;
-let YT_Start_Time_Array;     //For Youtube
-let YTswitch=0;              //For Youtube
-//----------------------------------------Ready----------------------------------------\\
-document.onreadystatechange=function()
-{
-  let fsc=document.getElementsByClassName("fullsc");
-  let fw=document.getElementsByClassName("fullw");
-  let fh=document.getElementsByClassName("fullh");
-  let wsc=$(window).width();
-  let hsc=wsc*9/16;
-  $(".fsc").css({"height": hsc+"px","width": wsc+"px"});
-  $(".fw").css({"width": wsc+"px"});
-  $(".fh").css({"height": hsc+"px"});
-
-}
-//----------------------------------------Resize--------------------------------------\\
-window.onresize=function()
-{
-  let fd=document.getElementsByClassName("resizable");
-  let fh=document.getElementsByClassName("resizable");
-  let wsc=$(window).width();
-  let hsc=wsc*9/16;
-}
-//----------------------------------------API Function----------------------------------\\
-
-/**
- * You can use this function to Play an Animation
- * @param {string} ID The object ID that you want it appeares animation
- * @param Animation_Name The name of your customized Animation
- * @param Second The second that you want it keep
- * @param Mode The Animaion mode . You can chooes : none | forwards | backwards | both 
- */
-function api_Animate(ID,Animation_Name,Second,Mode)
-{
-  let condition= Animation_Name+" "+Second+" "+Mode;
-  document.getElementById(ID).style.animation =condition;
-}
-
-
-/**
- * To go other web site
- * @param {string} href 
- * @param {boolean} open_new_window 
- */
-function goto(href,open_new_window)
-{
-  if(open_new_window)
-  {
-    window.open(href[a1]);
-  }
-  else if(!open_new_window)
-  {
-    document.location.href=href[a1];
-  }
-}
-
-
-/**
- * This function is for random play vedio or display picture
- * @param {string} ID The object ID that you want it random play
- * @param api_Img_Array Input image array that it will display by random 
- */
-function api_Media_Random_no_btn(ID,api_Img_Array,)
-{
-  let leng=api_Img_Array.length;
-  let vdo = document.getElementById(ID);
-  let rnd = parseInt(Math.random()*10)%leng;
-  a1=rnd;
-  if(count)
-  {
-    vdo.src=api_Img_Array[rnd];
-    a2=rnd;
-    count--;
-  }
-  else if(!count)
-  {
-    if(a1 == a2)
-    {
-      if(a1 == 0)
-      {a1++;}
-      else if(a1 == leng-1)
-      {a1--;}
-    }
-  }
-
-  $(ID).attr("src",api_Img_Array[a1])
-  a2=a1;
-}
-
-
-/**
- * Using it to random play picture or vedio and also change button's text and link
- * @param {string} ID The picture tag's ID
- * @param {Array} api_Img_Array The Vedio Array that you wanna play
- * @param {string} btnID Button's ID
- * @param {Array} btn_text_Array The text array you want it show
- */
-function api_Media_Random(ID,api_Img_Array,btnID,btn_text_Array)
-{
-  //decalere
-  let leng=api_Img_Array.length;
-  let rnd = parseInt(Math.random()*10)%leng;
-  a1=rnd;
-
-  if(count)
-  {
-    count--;
-  }
-  else if(!count)
-  {
-    if(a1 == a2)
-    {
-      if(a1 == 0)
-      {
-        a1++;
-      }
-      else if(a1 == leng-1)
-      {
-        a1--;
-      }
-    }
-  }
-  $(ID).attr("src",api_Img_Array[a1]);
-  
-  $(btnID).html();
-  a2=a1;
-}
-
-
-//-------------------------------------------Youtube API---------------------------------------\\
-/**
- * Use this function to typing the parameter to ensure the window size and the Start second
- * @param {*} YT_Player The div which you want to play youtube vedio id
- * @param {*} Height The Height of youtube window
- * @param {*} Width The Width of youtube window
- * @param {string} Start_Time_Array The array of the random start time
- */
-function YTPlayer(YT_Player,Heigh,Width,Start_Time_Array)
-{
-  Player=document.getElementById(YT_Player);
-  YTHeigh=Heigh;
-  YTWidth=Width;
-  YT_Start_Time_Array=Start_Time_Array;
-}
-/**
- * To type in switch-code to determin whether the youtube_api work
- * @param {boolean} switchCode 
- */
-function YTSwitch(switchCode)
-{
-  YTswitch=switchCode;
-  if(switchCode)
-  {
-    var tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  }
-}
-
-function onYoutubeIframeAPIReady()
-{
-  if(YTSwitch)
-  {   
-    let Time = parseInt(Math.random()*10)%api_Start_Time_Array.length;           //For Youtube
-    
-    vdplayer=new YT.Player(Player,{
-    videoId: api_Youtube_Vedio_ID, // 要播放的第一支YouTube 影片ID
-    height: YTHeigh,              // 播放器高度 (px)
-    width: YTWidth,
-    playerVars: 
-      {
-        autoplay: 1,        // 在讀取時自動播放影片
-        controls: 0,        // 在播放器顯示暫停／播放按鈕
-        showinfo: 0,        // 隱藏影片標題
-        modestbranding: 1,  // 隱藏YouTube Logo
-        loop: 1,            // 讓影片循環播放
-        playlist: api_Youtube_Vedio_ID,  //要播放的第二支YouTube 影片ID，若要重複撥放同一個影片則設為同ID即可
-        fs: 0,              // 全螢幕按鈕
-        playsinline: 1,     //This parameter controls whether vedios play inline or fullscreen
-        cc_load_policty: 0, // 隱藏字幕
-        iv_load_policy: 3,  // 隱藏影片註解
-        autohide: 0,         // 當播放影片時隱藏影片控制列
-        start: YT_Start_Time_Array[Time]
-      },
-      events:{
-        'onReady' : onReady,
-        'onStateChange' : onStateChange
-      }
-    });
-  }
-}
-
-
-
-
-</script>
--->
-
+<style>
+  #cmy{height: 25vw; width: 100vw;position: absolute;z-index: 1;}
+  #cmy i{margin-top: 100%;color: rgb(138, 138, 138);}
+  #cmy i:active{color: rgb(37, 37, 37);}
+</style>
 
 <script>
-
-
-
-function update()
+let a1=1;
+function bambooMouse()
 {
-  $("#abc").text($(window).width());
+  let vd=document.getElementById("vdo");
+  a1++;
+  if(a1 > vdArray.length-1)
+  {
+    a1 = 0;
+  }
+  vd.src=vdArray[a1];
+  console.log(a1);
 }
-
-function vedioPlay()
+function bambooMouse2()
 {
-  let vdArray =["/var/file/9/1009/img/3678/v01.477p.x264.aac.mp4","/var/file/9/1009/img/3678/v02.477p.x264.aac.mp4","/var/file/9/1009/img/3678/v03.477p.x264.aac.mp4"];
-  let btntextArray=['屏東大學資訊學院','了解更多..','高教深耕計畫'];
-  api_Media_Random(vdo,vdArray,adbtn,btntextArray);
-  //$("#adbtn").html(<i class="fas fa-info"></i>); 
+  let vd=document.getElementById("vdo");
+  a1--;
+  if(a1 < 0)
+  {
+    a1 = vdArray.length-1;
+  }
+  vd.src=vdArray[a1];
+  console.log(a1);
 }
-function btnClick()
+function bambooMouse3()
 {
-  let linkArray=['http://www.ccs.nptu.edu.tw','https://www.nptu.edu.tw','http://www.ugsi2usr.nptu.edu.tw'];
-  goto(linkArray,0);
+  let vd=document.getElementById("vdo");
+  a1++;
+  if(a1 > vdArray.length-1)
+  {
+    a1 = 0;
+  }
+  vd.src=vdArray[a1];
+  console.log(a1);
 }
 </script>
-<div id=""></div>
-<button type="button" class="btn vdbtn" onclick="btnClick()" id="adbtn"><i class="fas fa-info"></i>了解更多..</button>
-<p id="abc"></p>
-<video id="vdo" class="resizeable fsc" ontimeupdate="update()" onended="vedioPlay()" autoplay playsinline controls muted src="/var/file/9/1009/img/3678/v02.477p.x264.aac.mp4"></video>
-<div style="position: absolute;z-index: 1;" class="resizable fsc"></div>
+<!--          --           Main          --           -->
+
+<div id="cmy">
+  <div id="left"  class="mod_row6   bt" onclick="bambooMouse()"><i class="fas fa-angle-left fa-7x"></i></div>
+  <div id="midle" class="mod_row3_2"></div>
+  <div id="right" class="mod_row6   bt" onclick="bambooMouse2()"><i class="fas fa-angle-right fa-7x"></i></div>
+</div>
+<video id="vdo" class="mod_row1" onended="bambooMouse3()" autoplay playsinline muted>
+<source src="/var/file/9/1009/img/3678/v02.477p.x264.aac.mp4" type="video/mp4">
+</video>
