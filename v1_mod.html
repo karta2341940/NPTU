@@ -1,5 +1,7 @@
 <link href="/var/file/9/1009/img/3681/base_mini.css" rel="stylesheet">
 <link href="/var/file/9/1009/img/3680/all.css" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <!--parameter-->
 <!--
 YTswitch  ==>The switch of Youtube function. 1 is turn on ,0 is turn off
@@ -88,6 +90,12 @@ var Debug_mod=1;
   #nptulink{  margin: calc(3vw - 10px) 3vw; font-size: 8vw;text-shadow: 2px 2px 9px rgb(27,27,27),-2px -2px 9px rgb(27,27,27);color: honeydew;font-family: "Times New Roman",Times,serif;text-decoration: none;}
   #btnn{margin: calc(30vw + 25px) 3vw;font-size: 4vw;}
 }
+@media (max-width: 576px)
+{
+  .dk{display: none;}
+  #nptulink{  margin: calc(3vw - 10px) 3vw; font-size: 10.9vw;text-shadow: 2px 2px 9px rgb(27,27,27),-2px -2px 9px rgb(27,27,27);color: honeydew;font-family: "Times New Roman",Times,serif;text-decoration: none;}
+  #btnn{margin: calc(33vw + 25px) 3vw;font-size: 4.8vw;}
+}
 /*default*/
 @media (min-width: 1200px)
 {
@@ -109,7 +117,7 @@ var Debug_mod=1;
 <div    id="top"      class="mk dk"></div>
 <div    id="bottom"   class="mk dk"></div>
 <i      id="mute"     class="application fas fa-volume-mute fa-2x dk"onclick="mute()" ></i>
-<button id="btnn"     class="application btn"type="button" onclick="gohome()" >進入校首頁</button>
+<button id="btnn"     class="application btn"type="button" onclick="go()" >進入校首頁</button>
 <i><a   id="nptulink" class="application"href="https://www.nptu.edu.tw">National Pingtung University</a></i>
 <!--
 -->
@@ -124,6 +132,7 @@ var Debug_mod=1;
 
 <script>
   //--------------------------Immediately invoked function expression--------------------------------\\
+  AOS.init();
 function randomImage()
 {
   let rnd = parseInt(Math.random()*10%imgArray.length)
@@ -134,8 +143,12 @@ if(Debug_mod)
 
 function detect(){if($(window).width()<=991){YTswitch=0;}}
 detect();
-//-------------------------------------------------------------------------------------------------------\\    
-    //----------------------------------------------------------------------------------------------------\\
+//-------------------------------------------------------------------------------------------------------\\
+function go()
+{
+  document.location.href="https://www.nptu.edu.tw";
+}
+    //--------------------------------------------Ytube--------------------------------------------------------\\
     var tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
     var firstScriptTag = document.getElementsByTagName('script')[0];
