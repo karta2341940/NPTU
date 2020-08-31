@@ -18,14 +18,15 @@
 {
     border-color: rgba(255, 255, 255, 0.767);
     color: rgb(255, 255, 255);
-    background-color: rgba(61, 61, 61, 0.582);
+    background-color: rgba(18, 143, 165, 0.801);
 }
 .btn:hover
 {
     border-color: rgba(255, 255, 255, 0.521);
     color: rgb(255, 255, 255);
-    background-color: rgba(255, 255, 255, 0.205);
+    background-color: rgba(18, 143, 165, 0.527);
 }
+
 @keyframes disappear{ 
     0% { 
      opacity: 1; 

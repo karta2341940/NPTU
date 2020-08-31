@@ -1,4 +1,4 @@
-<link href="/var/file/9/1009/img/3681/base_mini.css" rel="stylesheet">
+<link href="/var/file/9/1009/img/3681/base.css" rel="stylesheet">
 <link href="/var/file/9/1009/img/3680/all.css" rel="stylesheet">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -40,6 +40,7 @@ var Debug_mod=1;
   100%{opacity: 1;}}
 /*-----------------------------------Animation^------------------------------------------*/
 /*----------------------------------------Css v------------------------------------------*/
+body{background-color: rgb(34,34,34);}
 .header{display: none;}
 .application{ position: absolute;z-index: 30;}
 .mk{position:absolute;z-index: 29;}
@@ -52,10 +53,10 @@ var Debug_mod=1;
 #mask{      position: absolute;z-index: 25;background-color: rgba(161, 161, 161, 0.247);}
 /*-----------------------------------APPLICATION-----------------------------------*/
 
-#top{       background-image: linear-gradient(to bottom,#fff 0,hsla(0,0%,100%,.933) 11.8%,hsla(0,0%,100%,.866) 21.3%,hsla(0,0%,100%,.8) 29%,hsla(0,0%,100%,.735) 35.2%,hsla(0,0%,100%,.67) 40.1%,hsla(0,0%,100%,.605) 44.3%,hsla(0,0%,100%,.54) 47.9%,hsla(0,0%,100%,.475) 51.4%,hsla(0,0%,100%,.41) 55%,hsla(0,0%,100%,.344) 59.2%,hsla(0,0%,100%,.277) 64.2%,hsla(0,0%,100%,.21) 70.5%,hsla(0,0%,100%,.141) 78.3%,hsla(0,0%,100%,.071) 88%,hsla(0,0%,100%,0) 100%);
+#top{       background-image: linear-gradient(to bottom,#fff 0,hsla(0,0%,100%,.933) 11.8%,hsla(0, 0%, 100%, 0.866) 21.3%,hsla(0,0%,100%,.8) 29%,hsla(0,0%,100%,.735) 35.2%,hsla(0,0%,100%,.67) 40.1%,hsla(0,0%,100%,.605) 44.3%,hsla(0,0%,100%,.54) 47.9%,hsla(0,0%,100%,.475) 51.4%,hsla(0,0%,100%,.41) 55%,hsla(0,0%,100%,.344) 59.2%,hsla(0,0%,100%,.277) 64.2%,hsla(0,0%,100%,.21) 70.5%,hsla(0,0%,100%,.141) 78.3%,hsla(0,0%,100%,.071) 88%,hsla(0,0%,100%,0) 100%);
             height: 250px;width: 100%;}
 #bottom{    height: 250px;width: 100%;
-            margin-top: calc(56.25vw - 250px);background-image: linear-gradient(to top   ,#fff 0,rgb(255, 255, 255) 11.8%,hsla(0,0%,100%,.866) 21.3%,hsla(0,0%,100%,.8) 29%,hsla(0,0%,100%,.735) 35.2%,hsla(0,0%,100%,.67) 40.1%,hsla(0,0%,100%,.605) 44.3%,hsla(0,0%,100%,.54) 47.9%,hsla(0,0%,100%,.475) 51.4%,hsla(0,0%,100%,.41) 55%,hsla(0,0%,100%,.344) 59.2%,hsla(0,0%,100%,.277) 64.2%,hsla(0,0%,100%,.21) 70.5%,hsla(0,0%,100%,.141) 78.3%,hsla(0,0%,100%,.071) 88%,hsla(0,0%,100%,0) 100%);}
+            margin-top: calc(56.25vw - 250px);background-image: linear-gradient(to top   ,hsl(0, 0%, 13%) 0,hsl(0,0%, 13%) 11.8%,hsla(0,0%,13%,.866) 21.3%,hsla(0,0%,13%,.8) 29%,hsla(0,0%,13%,.735) 35.2%,hsla(0,0%,13%,.67) 40.1%,hsla(0,0%,13%,.605) 44.3%,hsla(0,0%,13%,.54) 47.9%,hsla(0,0%,13%,.475) 51.4%,hsla(0,0%,13%,.41) 55%,hsla(0,0%,13%,.344) 59.2%,hsla(0,0%,13%,.277) 64.2%,hsla(0,0%,13%,.21) 70.5%,hsla(0,0%,13%,.141) 78.3%,hsla(0,0%,13%,.071) 88%,hsla(0,0%,13%,0) 100%);}
 #nptulink{  margin: 15vw 3vw; font-size: 5vw;text-shadow: 2px 2px 9px rgb(27,27,27),-2px -2px 9px rgb(27,27,27);color: honeydew;font-family: "Times New Roman",Times,serif;text-decoration: none;}
 #btnn{      margin: calc(22vw + 20px) 3vw; font-size: 1.2vw;}
 #mute{      margin: 1vh 96vw;display: none;}
@@ -118,7 +119,7 @@ var Debug_mod=1;
 <div    id="bottom"   class="mk dk"></div>
 <i      id="mute"     class="application fas fa-volume-mute fa-2x dk"onclick="mute()" ></i>
 <button id="btnn"     class="application btn"type="button" onclick="go()" >進入校首頁</button>
-<i><a   id="nptulink" class="application"href="https://www.nptu.edu.tw">National Pingtung University</a></i>
+<i><a   id="nptulink" class="application"href="https://www.nptu.edu.tw">Welcome to NPTU</a></i>
 <!--
 -->
 <div    id="mask"     class="fsc"></div>
