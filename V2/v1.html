@@ -61,7 +61,7 @@ var Debug_mod=1;
             height: 250px;width: 100%;}
 #bottom{    height: 250px;width: 100%;
             margin-top: calc(56.25vw - 250px);background-image: linear-gradient(to top   ,hsl(0, 0%, 13%) 0,hsl(0,0%, 13%) 11.8%,hsla(0,0%,13%,.866) 21.3%,hsla(0,0%,13%,.8) 29%,hsla(0,0%,13%,.735) 35.2%,hsla(0,0%,13%,.67) 40.1%,hsla(0,0%,13%,.605) 44.3%,hsla(0,0%,13%,.54) 47.9%,hsla(0,0%,13%,.475) 51.4%,hsla(0,0%,13%,.41) 55%,hsla(0,0%,13%,.344) 59.2%,hsla(0,0%,13%,.277) 64.2%,hsla(0,0%,13%,.21) 70.5%,hsla(0,0%,13%,.141) 78.3%,hsla(0,0%,13%,.071) 88%,hsla(0,0%,13%,0) 100%);}
-#nptulink{  margin: 15vw 3vw; font-size: 5vw;text-shadow: 2px 2px 9px rgb(27,27,27),-2px -2px 9px rgb(27,27,27);color: honeydew;font-family: "Times New Roman",Times,serif;text-decoration: none;}
+#nptulink{  margin: 15vw 3vw; font-size: 5vw;text-shadow: 2px 2px 9px rgb(27,27,27),-2px -2px 9px rgb(27,27,27);color: honeydew;text-decoration: none;font-family: 'Frank Ruhl Libre',serif;}
 #bttnn{      margin: calc(22vw + 20px) 3vw; font-size: 1.2vw;}
 #mute{      margin: 1vh 96vw;display: none;}
 /*----------------------------RWD----------------------------*/
@@ -75,31 +75,31 @@ var Debug_mod=1;
 }
 @media (min-width: 1199px) and (max-width: 1439px)
 {
-  #nptulink{  margin: 15vw 3vw; font-size: 7vw;text-shadow: 2px 2px 9px rgb(27,27,27),-2px -2px 9px rgb(27,27,27);color: honeydew;font-family: "Times New Roman",Times,serif;text-decoration: none;}
+  #nptulink{  margin: 15vw 3vw; font-size: 7vw;text-shadow: 2px 2px 9px rgb(27,27,27),-2px -2px 9px rgb(27,27,27);color: honeydew;text-decoration: none;}
   #bttnn{margin: calc(28vw + 25px) 3vw;font-size: 2vw;}
 }
 @media (max-width: 1200px) and (min-width: 992px)
 {
-  #nptulink{  margin: 15vw 3vw; font-size: 7.5vw;text-shadow: 2px 2px 9px rgb(27,27,27),-2px -2px 9px rgb(27,27,27);color: honeydew;font-family: "Times New Roman",Times,serif;text-decoration: none;}
+  #nptulink{  margin: 15vw 3vw; font-size: 7.5vw;text-shadow: 2px 2px 9px rgb(27,27,27),-2px -2px 9px rgb(27,27,27);color: honeydew;text-decoration: none;}
   #bttnn{margin: calc(28vw + 15px) 3vw;font-size: 2.5vw;}
 }
 @media (max-width: 991px)
 {
   .dk{display: none;}
-  #nptulink{  margin: 12vw 3vw; font-size: 7.5vw;text-shadow: 2px 2px 9px rgb(27,27,27),-2px -2px 9px rgb(27,27,27);color: honeydew;font-family: "Times New Roman",Times,serif;text-decoration: none;}
+  #nptulink{  margin: 12vw 3vw; font-size: 7.5vw;text-shadow: 2px 2px 9px rgb(27,27,27),-2px -2px 9px rgb(27,27,27);color: honeydew;text-decoration: none;}
   #bttnn{margin: calc(28vw + 15px) 3vw;font-size: 3vw;}
 }
 @media (max-width: 768px)
 {
   #bttnn{display: none;}
   .dk{display: none;}
-  #nptulink{  margin: calc(3vw - 10px) 3vw; font-size: 8vw;text-shadow: 2px 2px 9px rgb(27,27,27),-2px -2px 9px rgb(27,27,27);color: honeydew;font-family: "Times New Roman",Times,serif;text-decoration: none;}
+  #nptulink{  margin: calc(3vw - 10px) 3vw; font-size: 8vw;text-shadow: 2px 2px 9px rgb(27,27,27),-2px -2px 9px rgb(27,27,27);color: honeydew;text-decoration: none;}
   #bttnn{margin: calc(30vw + 25px) 3vw;font-size: 4vw;}
 }
 @media (max-width: 576px)
 {
   .dk{display: none;}
-  #nptulink{  margin: calc(3vw - 10px) 3vw; font-size: 10.9vw;text-shadow: 2px 2px 9px rgb(27,27,27),-2px -2px 9px rgb(27,27,27);color: honeydew;font-family: "Times New Roman",Times,serif;text-decoration: none;}
+  #nptulink{  margin: calc(3vw - 10px) 3vw; font-size: 10.9vw;text-shadow: 2px 2px 9px rgb(27,27,27),-2px -2px 9px rgb(27,27,27);color: honeydew;text-decoration: none;}
   #bttnn{margin: calc(33vw + 25px) 3vw;font-size: 4.8vw;}
 }
 /*default
@@ -127,7 +127,7 @@ var Debug_mod=1;
 <div    id="bottom"   class="mk dk"></div>
 <i      id="mute"     class="application fas fa-volume-mute fa-2x dk"onclick="mute()" ></i>
 <button id="bttnn"     class="application bttn"type="button" onclick="go()" >前往校首頁</button>
-<i><a   id="nptulink" class="application"href="https://www.nptu.edu.tw">Welcome to NPTU</a></i>
+<a   id="nptulink" class="application"href="https://www.nptu.edu.tw">Welcome to NPTU</a>
 <!--
 -->
 <div    id="mask"     class="fsc"></div>
