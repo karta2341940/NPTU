@@ -1,33 +1,35 @@
-<link rel="stylesheet" href="var/file/9/1009/img/3681/carousel.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
 <script>
+  //Following link,Please fill in in order 
+  //The link that the video link to.
   var linkArray=[ 'http://www.ccs.nptu.edu.tw',
                   'https://www.nptu.edu.tw/files/13-1000-60341.php?Lang=zh-tw',
-                  'http://www.ugsi2usr.nptu.edu.tw'];
-  
-  var vdArray =[  "https://front.nptu.edu.tw/var/file/9/1009/img/3678/v01.477p.x264.aac.mp4",
-                  "https://front.nptu.edu.tw/var/file/9/1009/img/3678/v02.477p.x264.aac.mp4",
-                  "https://front.nptu.edu.tw/var/file/9/1009/img/3678/v03.477p.x264.aac.mp4"];
-  
-  var btntextArray=[  '進入資訊學院',  
+                  'http://www.ugsi2usr.nptu.edu.tw'
+                ];
+  //The link of video.
+  var vdArray = [ "/var/file/9/1009/img/3678/v01.477p.x264.aac.mp4",
+                  "/var/file/9/1009/img/3678/v02.477p.x264.aac.mp4",
+                  "/var/file/9/1009/img/3678/v03.477p.x264.aac.mp4"
+                ];
+  //The text that needs show at the video-top
+  var btntextArray= [ '進入資訊學院',  
                       '進入關於本校',
-                      '進入高教深耕計畫'];
-  
+                      '進入高教深耕計畫'
+                    ];
+
 </script>
+
+
+
+<!--Some resource import-->
+<link rel="stylesheet" href="var/file/9/1009/img/3681/carousel.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
 
 <!-- The slideshow -->
 <div class="mod_row1">
-
-
     <div id="demo" class="carousel slide" data-ride="carousel">
         
         <!-- The slideshow -->
@@ -35,21 +37,21 @@
 
             <div class="carousel-item active">
                 
-                <video id="vdo" class="fixed" onplay="bambooMouseBBQ()" onended="bambooMouseEnded()" onclick="bambooMouseHeatstroked()" autoplay playsinline muted>
-                      <source src="https://front.nptu.edu.tw/var/file/9/1009/img/3678/v02.477p.x264.aac.mp4" type="video/mp4">
+                <video id="vdo" class="fixed" onplay="bambooMouseBBQ()" onended="bambooMouseEnded()" onclick="bambooMouseHeatstroked()" autoplay controls playsinline muted>
+                      <source src="/var/file/9/1009/img/3678/v01.477p.x264.aac.mp4" type="video/mp4">
                       </video>
                       <div class="carousel-caption" onclick="bambooMouseHeatstroked()">
-                          <p id="bbmbbq" style="background-color: rgba(128, 128, 128, 0.397);cursor: ;"></p>
+                          <p id="bbmbbq" style="background-color: rgba(128, 128, 128, 0.397);cursor: default;"></p>
                         </div>
                     </div>
                     
                 </div>
                 
                 <!-- Left and right controls -->
-                <a class="carousel-control-prev" onclick="bambooMouse()" data-slide="prev">
+                <a class="carousel-control-prev" onclick="bambooMouseF()" data-slide="prev">
                     <span class="carousel-control-prev-icon"></span>
                 </a>
-                <a class="carousel-control-next" onclick="bambooMouse2()" data-slide="next">
+                <a class="carousel-control-next" onclick="bambooMouseR()" data-slide="next">
                     <span class="carousel-control-next-icon"></span>
                 </a>
     </div>
@@ -68,60 +70,53 @@
 
 
 <script>
-  $(".carousel").carousel({interval:false})
+    $(".carousel").carousel({interval:false}); //Turn off carousel
 
+    //Declar a variable that records the video number that currently playing.
     let a1=1;
-    
-    function bambooMouse()
+
+    //Changing to next video
+    function bambooMouseF()
     {
       let vd=document.getElementById("vdo");
       a1++;
-      if(a1 > vdArray.length-1)
-      {
-        a1 = 0;
-      }
+      if(a1 > vdArray.length-1) a1 = 0;
       vd.src=vdArray[a1];
       console.log(a1);
     }
-    function bambooMouse2()
+
+    //Changing to last video
+    function bambooMouseR()
     {
       let vd=document.getElementById("vdo");
       a1--;
-      if(a1 < 0)
-      {
-        a1 = vdArray.length-1;
-      }
+
+      if(a1 < 0) a1 = vdArray.length-1;
+
       vd.src=vdArray[a1];
       console.log(a1);
     }
+
+    //When the video end executing this function to decide the next video 
     function bambooMouseEnded()
     {
       let rnd = parseInt(Math.random()*10 % linkArray.length);
       let vd=document.getElementById("vdo");
-    
-      if( rnd == a1 )
-      {
-        if( rnd == vdArray.length - 1 )
-        {
-            rnd--;
-        }
-        else if( rnd == 0 )
-        {
-            rnd++;
-        }
+
+      if( rnd == a1 )                           //identifying whether the random number is equal currently video number ,
+      {                                         //if true identify whether the video is the last one or not.
+        if( rnd == vdArray.length - 1 ) rnd--;  //if the last , minus 1
+        else rnd++;                             //others plus 1
         a1 = rnd;
       }
-      else 
-      {
-        a1 = rnd;
-      }
+      else a1 = rnd;
       vd.src=vdArray[a1];
-      console.log("Vedio: "+a1);
+      console.log("Vedio: "+a1);                //This code is for debug
     }
     function bambooMouseHeatstroked()
     {
-    	window.open(linkArray[a1]);
-        //document.location.href=linkArray[a1];
+    	window.open(linkArray[a1]);//Open the link in new window
+      //document.location.href=linkArray[a1]; //Open the link in the currently window
     }
     function bambooMouseBBQ()
     {   
