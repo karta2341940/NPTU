@@ -12,6 +12,22 @@
         document.cookie =cname + "=" + cval + ";" + expires + ";path=/";
     }
 
+    function setCookieHour(cname , cval , alive) 
+    {
+        var day=new Date();
+        day.setTime( day.getTime() + (alive * 60 * 60 * 1000) ); 
+        var expires = "expires=" + day.toGMTString();
+        document.cookie =cname + "=" + cval + ";" + expires + ";path=/";
+    }
+
+    function setCookieMin(cname , cval , alive) 
+    {
+        var day=new Date();
+        day.setTime( day.getTime() + (alive * 60 * 1000) ); 
+        var expires = "expires=" + day.toGMTString();
+        document.cookie =cname + "=" + cval + ";" + expires + ";path=/";
+    }
+
     function setCookieSec(cname , cval , alive) //alive Unit is second
     {
         var day=new Date();
@@ -45,6 +61,7 @@
         //Search and get cookie which named entered
         let etn = getCookie("entered");
         //Check whether the cookie exist
+        //---------------------------------------------------------------Add / Remove function here-----------------------------------------------------
         if(etn == "")
         { 
             let etned=1;
@@ -56,6 +73,7 @@
             setCookie("entered",etned,7);
             
         }
+        //---------------------------------------------------------------Add / Remove function here-----------------------------------------------------
     }
     checkCookie();
 </script>
