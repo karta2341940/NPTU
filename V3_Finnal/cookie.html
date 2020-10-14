@@ -1,4 +1,9 @@
 <script>
+    //Set time here
+    var Days = 7; //Unit : Days
+
+
+
     //setCookie(Cookie_name,Cookie_Value,Cookie_Aging)
     //cname => Cookie's Name .Set a sinificant Name ( Unit : String )
     //cval  => Cookie's Value .Give cookie a value ( Unit : None )
@@ -67,10 +72,10 @@
             let etned=1;
             if(document.referrer != "https://front.nptu.edu.tw") //if the user doesn't come from Font.nptu that redirect to Font.nptu
             {
-                setCookie("entered",etned,7);                    //Setting the cookie's name "entered" and give it a value --1 set its aging 7days
+                setCookie("entered",etned,Days);                    //Setting the cookie's name "entered" and give it a value --1 set its aging 7days
                 document.location.href="https://front.nptu.edu.tw";
             }
-            setCookie("entered",etned,7);
+            setCookie("entered",etned,Days);
             
         }
         //---------------------------------------------------------------Add / Remove function here-----------------------------------------------------

@@ -1,4 +1,160 @@
 
+<<<<<<< HEAD:V1/base.js
+=======
+    .container {width: 100%; margin: 0px !important; padding: 0px !important;}
+    .row .col .mcol{ padding: 0 !important;}
+    .hdline{display: none;}
+    @media (max-width: 768px){
+      .contain{width: 100%;}
+    .minner {padding-left: 0px !important; padding-right: 0px !important;}
+    }
+    @media (min-width: 1200px){
+      .container{width: 100% !important;}
+    }
+    @media (min-width: 992px){
+      .container{width: 100% !important;}
+    }
+    @keyframes disappear{ 
+    0% { 
+     opacity: 1; 
+    }
+    75% { 
+     opacity: 0; 
+    }
+    100% { 
+     opacity: 0; 
+    }
+    } 
+    @keyframes disappear2{ 
+    0% { 
+     opacity: 1; 
+    }
+    25%
+    {
+      opacity: 1; 
+    }
+    50% { 
+     opacity: 0.8; 
+    }
+    75% { 
+     opacity: 0.6; 
+    }
+     100% { 
+     opacity: 0; 
+    }
+    }
+    @keyframes appear{ 
+      0% 
+      { 
+        opacity: 0; 
+      }
+      50%
+      {
+        opacity: 0.1;
+      }
+      100%
+      {
+        opacity: 1;
+      }
+    }
+    #base
+    {
+      position: relative;
+      z-index: 0;
+    }
+    #player
+    {
+      position: absolute;
+      z-index: 4;
+    }
+    #image
+    {
+      position: absolute;
+      z-index: 20;
+    }
+    #nptulink
+    {
+      position: absolute;
+      z-index: 60;
+      font-size: 48pt;
+      color: honeydew;
+      text-decoration:none;
+      margin: 300px 50px;
+      text-shadow: 2px 2px 9px rgb(27, 27, 27), -2px -2px 9px rgb(27, 27, 27);
+      font-family: "Times New Roman", Times, serif;
+
+    }
+    #mask
+    {
+      position: absolute;
+      z-index: 21;
+      padding: 30px 30px;
+    }
+    #btnn
+    {
+      position: absolute;
+      z-index: 60;
+      font-size: 16pt;
+      margin: 480px 50px;
+    }
+    .btn
+    {
+      border-color: rgba(255, 255, 255, 0.767);
+      color: rgb(255, 255, 255);
+      background-color: rgba(255, 255, 255, 0.144);
+    }
+    .btn:hover
+    {
+      border-color: rgba(255, 255, 255, 0.521);
+      color: rgb(255, 255, 255);
+      background-color: rgba(61, 61, 61, 0.582);
+    }
+    #top
+    {
+      position: absolute;
+      z-index: 5;
+      background-image: linear-gradient(to bottom,#fff 0,rgb(255, 255, 255) 11.8%,hsla(0,0%,100%,.866) 21.3%,hsla(0,0%,100%,.8) 29%,hsla(0,0%,100%,.735) 35.2%,hsla(0,0%,100%,.67) 40.1%,hsla(0,0%,100%,.605) 44.3%,hsla(0,0%,100%,.54) 47.9%,hsla(0,0%,100%,.475) 51.4%,hsla(0,0%,100%,.41) 55%,hsla(0,0%,100%,.344) 59.2%,hsla(0,0%,100%,.277) 64.2%,hsla(0,0%,100%,.21) 70.5%,hsla(0,0%,100%,.141) 78.3%,hsla(0,0%,100%,.071) 88%,hsla(0,0%,100%,0) 100%);
+      height: 350px;
+      position: absolute;
+      width: 100%;
+    }
+    #bottom
+    {
+      position: absolute;
+      z-index: 5;
+      background-image: linear-gradient(to top,#fff 0,rgb(255, 255, 255) 11.8%,hsla(0,0%,100%,.866) 21.3%,hsla(0,0%,100%,.8) 29%,hsla(0,0%,100%,.735) 35.2%,hsla(0,0%,100%,.67) 40.1%,hsla(0,0%,100%,.605) 44.3%,hsla(0,0%,100%,.54) 47.9%,hsla(0,0%,100%,.475) 51.4%,hsla(0,0%,100%,.41) 55%,hsla(0,0%,100%,.344) 59.2%,hsla(0,0%,100%,.277) 64.2%,hsla(0,0%,100%,.21) 70.5%,hsla(0,0%,100%,.141) 78.3%,hsla(0,0%,100%,.071) 88%,hsla(0,0%,100%,0) 100%);
+      height: 200px;
+      position: absolute;
+      width: 100%;
+    }
+    #scLogo
+    {
+      position: absolute;
+      z-index: 6;
+      right: 0px;
+    }
+    #scbar
+    {
+      position: absolute;
+      z-index: 6;
+      margin-left: 20%;
+      display: none;
+
+    }
+    #mute
+    {
+      position: absolute;
+      z-index: 65;
+      right: 10px;
+      margin-top: 10px;
+      display: none;
+    }
+    
+    </style>
+    
+<script>
+  //--
+>>>>>>> origin/master:Version1.html
   //-------------------------------------Youtube-------------------------------------\\
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";

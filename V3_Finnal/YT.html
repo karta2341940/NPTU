@@ -1,10 +1,8 @@
-<!--
-    <link href="/var/file/9/1009/img/3681/base.css" rel="stylesheet">
+<link href="/var/file/9/1009/img/3680/all.css" rel="stylesheet">
+<!----------------------FontAwsome Include------------------------------------------->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">       
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>               
 
--->
-<link href="/var/file/9/1009/img/3680/all.css" rel="stylesheet"><!--FontAwsome Include-->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <!--parameter-->
 <!--
@@ -21,7 +19,10 @@ var playID="dSOrZnqfdBk";
 var width=1920;
 var height = 1080;
 var startTime=[0,41,64,86,111];
-var imgArray=['/var/file/9/1009/img/3679/004.png','/var/file/9/1009/img/3679/003.png','/var/file/9/1009/img/3679/002.png','/var/file/9/1009/img/3679/001.png'];
+var imgArray=['/var/file/9/1009/img/3679/004.png',
+              '/var/file/9/1009/img/3679/003.png',
+              '/var/file/9/1009/img/3679/002.png',
+              '/var/file/9/1009/img/3679/001.png'];
 var Debug_mod=0;
 </script>
 <!---------------------------------------------------------------------------------------------------------------------------------------------->
@@ -103,23 +104,6 @@ var Debug_mod=0;
   #nptulink{  margin: calc(3vw - 10px) 3vw; font-size: 10.9vw;text-shadow: 2px 2px 9px rgb(27,27,27),-2px -2px 9px rgb(27,27,27);color: honeydew;text-decoration: none;}
   #bttnn{margin: calc(33vw + 25px) 3vw;font-size: 4.8vw;}
 }
-/*default
-.container {width: 100%; margin: 0px !important; padding: 0px !important;}
-.row .col .mcol{ padding: 0 !important;}
-@media (min-width: 1200px)
-{
-  .container{width: 100% !important;}
-}   
-@media (min-width: 992px)
-{
-  .container{width: 100% !important;}
-}
-@media (max-width: 768px)
-{
-    .contain{width: 100%;}
-    .minner {padding-left: 0px !important; padding-right: 0px !important;}
-}
-/*end default*/
 </style>
 
 
@@ -128,7 +112,7 @@ var Debug_mod=0;
 <div    id="bottom"   class="mk dk"></div>
 <i      id="mute"     class="application fas fa-volume-mute fa-2x dk"onclick="mute()" ></i>
 <button id="bttnn"     class="application bttn"type="button" onclick="go()" >前往校首頁</button>
-<a   id="nptulink" class="application"href="https://www.nptu.edu.tw">Welcome to NPTU</a>
+<a      id="nptulink" class="application"href="https://www.nptu.edu.tw">Welcome to NPTU</a>
 <!--
 -->
 <div    id="mask"     class="fsc"></div>
@@ -177,10 +161,10 @@ function go()
           host: 'https://www.youtube.com',
           playerVars:
           {
-            playsinline: 1,
-            loop: 1,
+            playsinline: 1,       //on phone or tablet Can play without fullscreen 
+            loop: 1,              //repeat
             autoplay: 1,
-            control: 0,
+            control: 0,           //disable control bar
             showinfo: 0,
             rel: 0,
             disablekb:1,
@@ -206,7 +190,7 @@ function go()
       player.playVideo();
       console.log("Vedio Play");
     }
-    function onStateChange(event)
+    function onStateChange(event) 
     {
       //$(".mk").css({"display": "inline"});
       console.log("onstatechange loading");
