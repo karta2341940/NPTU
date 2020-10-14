@@ -1,0 +1,116 @@
+<link href="/var/file/9/1009/img/3681/base_mini.css" rel="stylesheet">
+<link href="/var/file/9/1009/img/3680/all.css" rel="stylesheet">
+<!--------------------------------------Bootstrap-------------------------------------->
+
+  
+<!-------------------------------------------Bootstrap------------------------------------------->
+<!--
+-->
+<!--Change-->
+<script>
+var linkArray=['http://www.ccs.nptu.edu.tw','https://www.nptu.edu.tw','http://www.ugsi2usr.nptu.edu.tw'];
+var vdArray =["/var/file/9/1009/img/3678/v01.477p.x264.aac.mp4","/var/file/9/1009/img/3678/v02.477p.x264.aac.mp4","/var/file/9/1009/img/3678/v03.477p.x264.aac.mp4"];
+var btntextArray=['屏東大學資訊學院','了解更多..','高教深耕計畫'];
+
+</script>
+<style>
+.mod_row1{   width: 100%;    height: 56.25%;text-align: center;float: left;}
+.mod_row2{   width: 50%;     height: 75vh;text-align: center;float: left;}
+.mod_row3{   width: 33.333%; height: 75vh;text-align: center;float: left;}
+.mod_row3_2{ width: 66.666%; height: 75vh;text-align: center;float: left;}
+.mod_row4{   width: 25%;     height: 75vh;text-align: center;float: left;}
+.mod_row4_3{ width: 75%;     height: 75vh;text-align: center;float: left;}
+.mod_row5{   width: 20%;     height: 75vh;text-align: center;float: left;}
+.mod_row5_2{ width: 40%;     height: 75vh;text-align: center;float: left;}
+.mod_row5_3{ width: 60%;     height: 75vh;text-align: center;float: left;}
+.mod_row5_4{ width: 80%;     height: 75vh;text-align: center;float: left;}
+.mod_row6{   width: 16.6666%;height: 75vh;text-align: center;float: left;}
+.mod_row6_5{ width: 83.3333%;height: 75vh;text-align: center;float: left;}
+.mod_row8{   width: 12.5%;   height: 75vh;text-align: center;float: left;}
+.mod_row8_3{ width: 37.5%;   height: 75vh;text-align: center;float: left;}
+.mod_row8_5{ width: 62.5%;   height: 75vh;text-align: center;float: left;}
+.mod_row8_7{ width: 87.5%;   height: 75vh;text-align: center;float: left;}
+.mod_row12{  width: 8.33333%;height: 75vh;text-align: center;float: left;}
+.mod_row16{  width: 6.25%;   height: 75vh;text-align: center;float: left;}
+.mod_rowA{   width: auto;    height: 75vh;text-align: center;float: left;}
+
+
+@media (max-width: 1200px)
+{
+.mod_row1   {width: 100%;    height: 56.25%;text-align: center;float: left;}
+.mod_row2   {width: 50%;     height: auto;text-align: center;float: left;}
+.mod_row3   {width: 33.333%; height: auto;text-align: center;float: left;}
+.mod_row3_2 {width: 66.666%; height: auto;text-align: center;float: left;}
+.mod_row4   {width: 25%;     height: auto;text-align: center;float: left;}
+.mod_row4_3 {width: 75%;     height: auto;text-align: center;float: left;}
+.mod_row5   {width: 20%;     height: auto;text-align: center;float: left;}
+.mod_row5_2 {width: 40%;     height: auto;text-align: center;float: left;}
+.mod_row5_3 {width: 60%;     height: auto;text-align: center;float: left;}
+.mod_row5_4 {width: 80%;     height: auto;text-align: center;float: left;}
+.mod_row6   {width: 16.6666%;height: 100%;text-align: center;float: left;}
+.mod_row6_5 {width: 83.3333%;height: auto;text-align: center;float: left;}
+.mod_row8   {width: 12.5%;   height: auto;text-align: center;float: left;}
+.mod_row8_3 {width: 37.5%;   height: auto;text-align: center;float: left;}
+.mod_row8_5 {width: 62.5%;   height: auto;text-align: center;float: left;}
+.mod_row8_7 {width: 87.5%;   height: auto;text-align: center;float: left;}
+.mod_row12  {width: 8.33333%;height: auto;text-align: center;float: left;}
+.mod_row16  {width: 6.25%;   height: auto;text-align: center;float: left;}
+.mod_rowA   {width: auto;    height: auto;text-align: center;float: left;}
+#right{float: right;}
+#cmy i:hover{color: rgb(137, 137, 137);}
+}
+</style>
+
+<style>
+  #cmy{height: 25vw; width: 100vw;position: absolute;z-index: 1;}
+  #cmy i{margin-top: 100%;color: rgb(138, 138, 138);}
+  #cmy i:hover,#cmy i:active{color: rgba(153, 153, 153, 0.349);}
+</style>
+
+<script>
+let a1=1;
+function bambooMouse()
+{
+  let vd=document.getElementById("vdo");
+  a1++;
+  if(a1 > vdArray.length-1)
+  {
+    a1 = 0;
+  }
+  vd.src=vdArray[a1];
+  console.log(a1);
+}
+function bambooMouse2()
+{
+  let vd=document.getElementById("vdo");
+  a1--;
+  if(a1 < 0)
+  {
+    a1 = vdArray.length-1;
+  }
+  vd.src=vdArray[a1];
+  console.log(a1);
+}
+function bambooMouse3()
+{
+  let vd=document.getElementById("vdo");
+  a1++;
+  if(a1 > vdArray.length-1)
+  {
+    a1 = 0;
+  }
+  vd.src=vdArray[a1];
+  console.log(a1);
+}
+</script>
+<!--          --           Main          --           -->
+
+
+<div id="cmy">
+  <div id="left"  class="mod_row6   bt" onclick="bambooMouse()"><i class="fas fa-angle-left fa-7x"></i></div>
+  <div id="midle" class="mod_row3_2"></div>
+  <div id="right" class="mod_row6   bt" onclick="bambooMouse2()"><i class="fas fa-angle-right fa-7x"></i></div>
+</div>
+<video id="vdo" class="mod_row1" onended="bambooMouse3()" autoplay playsinline muted>
+<source src="/var/file/9/1009/img/3678/v02.477p.x264.aac.mp4" type="video/mp4">
+</video>

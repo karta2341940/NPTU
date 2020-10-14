@@ -1,0 +1,233 @@
+<link href="/var/file/9/1009/img/3681/base.css" rel="stylesheet">
+<link href="/var/file/9/1009/img/3680/all.css" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!--parameter-->
+<!--
+YTswitch  ==>The switch of Youtube function. 1 is turn on ,0 is turn off
+playID    ==>the ID youtube will play
+startTime ==>Youtube start time
+imgArray  ==>An array that the position which the picture saved  
+-->
+<script>
+
+var YTswitch=1;
+var playID="dSOrZnqfdBk";
+var width=1920;
+var height = 1080;
+var startTime=[0,41,64,86,111];
+var imgArray=['/var/file/9/1009/img/3679/004.png','/var/file/9/1009/img/3679/003.png','/var/file/9/1009/img/3679/002.png','/var/file/9/1009/img/3679/001.png'];
+var Debug_mod=1;
+
+</script>
+
+
+<style>
+
+/*-----------------------------------Animation^------------------------------------------*/
+/*----------------------------------------Css v------------------------------------------*/
+
+.application{ position: absolute;z-index: 30;}
+.mk{position:absolute;z-index: 29;}
+.fsc{width: 100%;height: 56.25vw;}
+#player{   position: absolute;z-index: 5;}
+#barout{    position: absolute;z-index: 10;width: 100%;width: 100%;height: 57px;background-color: rgba(255, 255, 255, 0.911);}
+#scLogo{    position: absolute;z-index: 10;margin-top: 34vw;right: 20px;}
+#bar{       position: absolute;z-index: 15;margin: 0.5vh 38vw;}
+#image{     position: absolute;z-index: 20;}
+#mask{      position: absolute;z-index: 25;background-color: rgba(161, 161, 161, 0.247);}
+/*-----------------------------------APPLICATION-----------------------------------*/
+
+#top{       background-image: linear-gradient(to bottom,#fff 0,hsla(0,0%,100%,.933) 11.8%,hsla(0, 0%, 100%, 0.866) 21.3%,hsla(0,0%,100%,.8) 29%,hsla(0,0%,100%,.735) 35.2%,hsla(0,0%,100%,.67) 40.1%,hsla(0,0%,100%,.605) 44.3%,hsla(0,0%,100%,.54) 47.9%,hsla(0,0%,100%,.475) 51.4%,hsla(0,0%,100%,.41) 55%,hsla(0,0%,100%,.344) 59.2%,hsla(0,0%,100%,.277) 64.2%,hsla(0,0%,100%,.21) 70.5%,hsla(0,0%,100%,.141) 78.3%,hsla(0,0%,100%,.071) 88%,hsla(0,0%,100%,0) 100%);
+            height: 250px;width: 100%;}
+#bottom{    height: 250px;width: 100%;
+            margin-top: calc(56.25vw - 250px);background-image: linear-gradient(to top   ,hsl(0, 0%, 13%) 0,hsl(0,0%, 13%) 11.8%,hsla(0,0%,13%,.866) 21.3%,hsla(0,0%,13%,.8) 29%,hsla(0,0%,13%,.735) 35.2%,hsla(0,0%,13%,.67) 40.1%,hsla(0,0%,13%,.605) 44.3%,hsla(0,0%,13%,.54) 47.9%,hsla(0,0%,13%,.475) 51.4%,hsla(0,0%,13%,.41) 55%,hsla(0,0%,13%,.344) 59.2%,hsla(0,0%,13%,.277) 64.2%,hsla(0,0%,13%,.21) 70.5%,hsla(0,0%,13%,.141) 78.3%,hsla(0,0%,13%,.071) 88%,hsla(0,0%,13%,0) 100%);}
+#nptulink{  margin: 15vw 3vw; font-size: 5vw;text-shadow: 2px 2px 9px rgb(27,27,27),-2px -2px 9px rgb(27,27,27);color: honeydew;font-family: "Times New Roman",Times,serif;text-decoration: none;}
+#btnn{      margin: calc(22vw + 20px) 3vw; font-size: 1.2vw;}
+#mute{      margin: 1vh 96vw;display: none;}
+/*----------------------------RWD----------------------------*/
+@media (min-width: 1919px)
+{
+  #btnn{margin: calc(24vw + 25px) 3vw;font-size: 1.5vw;}
+}
+@media (min-width: 1439px) and (max-width: 1600px)
+{
+  #btnn{margin: calc(26vw + 25px) 3vw;font-size: 1.8vw;}
+}
+@media (min-width: 1199px) and (max-width: 1439px)
+{
+  #nptulink{  margin: 15vw 3vw; font-size: 7vw;text-shadow: 2px 2px 9px rgb(27,27,27),-2px -2px 9px rgb(27,27,27);color: honeydew;font-family: "Times New Roman",Times,serif;text-decoration: none;}
+  #btnn{margin: calc(28vw + 25px) 3vw;font-size: 2vw;}
+}
+@media (max-width: 1200px) and (min-width: 992px)
+{
+  #nptulink{  margin: 15vw 3vw; font-size: 7.5vw;text-shadow: 2px 2px 9px rgb(27,27,27),-2px -2px 9px rgb(27,27,27);color: honeydew;font-family: "Times New Roman",Times,serif;text-decoration: none;}
+  #btnn{margin: calc(28vw + 15px) 3vw;font-size: 2.5vw;}
+}
+@media (max-width: 991px)
+{
+  .dk{display: none;}
+  #nptulink{  margin: 12vw 3vw; font-size: 7.5vw;text-shadow: 2px 2px 9px rgb(27,27,27),-2px -2px 9px rgb(27,27,27);color: honeydew;font-family: "Times New Roman",Times,serif;text-decoration: none;}
+  #btnn{margin: calc(28vw + 15px) 3vw;font-size: 3vw;}
+}
+@media (max-width: 768px)
+{
+  #btnn{display: none;}
+  .dk{display: none;}
+  #nptulink{  margin: calc(3vw - 10px) 3vw; font-size: 8vw;text-shadow: 2px 2px 9px rgb(27,27,27),-2px -2px 9px rgb(27,27,27);color: honeydew;font-family: "Times New Roman",Times,serif;text-decoration: none;}
+  #btnn{margin: calc(30vw + 25px) 3vw;font-size: 4vw;}
+}
+@media (max-width: 576px)
+{
+  .dk{display: none;}
+  #nptulink{  margin: calc(3vw - 10px) 3vw; font-size: 10.9vw;text-shadow: 2px 2px 9px rgb(27,27,27),-2px -2px 9px rgb(27,27,27);color: honeydew;font-family: "Times New Roman",Times,serif;text-decoration: none;}
+  #btnn{margin: calc(33vw + 25px) 3vw;font-size: 4.8vw;}
+}
+/*default*/
+@media (min-width: 1200px)
+{
+  .container{width: 100% !important;}
+}   
+@media (min-width: 992px)
+{
+  .container{width: 100% !important;}
+}
+@media (max-width: 768px)
+{
+    .contain{width: 100%;}
+    .minner {padding-left: 0px !important; padding-right: 0px !important;}
+}
+</style>
+
+
+
+<div    id="top"      class="mk dk"></div>
+<div    id="bottom"   class="mk dk"></div>
+<button id="btnn"     class="application btn"type="button" onclick="go()" >前往校首頁</button>
+<i><a   id="nptulink" class="application"href="https://www.nptu.edu.tw">Welcome to NPTU</a></i>
+<!--
+  <i      id="mute"     class="application fas fa-volume-mute fa-2x dk"onclick="mute()" ></i>
+  <img    id="bar"      class="dk"  src="/var/file/9/1009/img/1/265474910.png"/>
+  <div    id="barout"   class="dk"></div>
+-->
+<div    id="mask"     class="fsc"></div>
+<img    id="image"    class="fsc">
+<img    id="scLogo"   class="dk"  src="/var/file/9/1009/img/509526559.png">
+<div    id="player"   class="fsc"></div>
+<div    id="base"     class="fsc"></div>
+
+
+<script>
+  //--------------------------Immediately invoked function expression--------------------------------\\
+  AOS.init();
+function randomImage()
+{
+  let rnd = parseInt(Math.random()*10%imgArray.length)
+  document.getElementById("image").src=imgArray[rnd];
+}
+if(Debug_mod)
+{randomImage();}
+
+function detect(){if($(window).width()<=991){YTswitch=0;}}
+detect();
+//-------------------------------------------------------------------------------------------------------\\
+function go()
+{
+  document.location.href="https://www.nptu.edu.tw";
+}
+    //--------------------------------------------Ytube--------------------------------------------------------\\
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // 3. This function creates an <iframe> (and YouTube player)
+    //    after the API code downloads.
+    var player;
+    function onYouTubeIframeAPIReady() {
+      if(YTswitch)
+      {
+        let time =parseInt(Math.random()*10%startTime.length);
+        player = new YT.Player('player', {
+          width: '1920',
+          height: '1080',
+          videoId: playID,
+          host: 'https://www.youtube.com',
+          playerVars:
+          {
+            playsinline: 1,
+            loop: 1,
+            autoplay: 1,
+            control: 0,
+            showinfo:0,
+            disablekb:1,
+            modestbranding: 1,
+            fs: 0,
+            cc_load_policty: 0,
+            iv_load_policty: 3,
+            autohide: 1,
+            playlist: playID,
+            start: startTime[time]
+          },
+          events: {
+            'onReady': onReady,
+            'onStateChange': onStateChange
+          }
+        });
+      }
+    }
+    function onReady(event) 
+    {
+      console.log("onReady ok");
+      player.playVideo();
+      console.log("Vedio Play");
+      event.target.mute();
+    }
+    function onStateChange(event)
+    {
+      //$(".mk").css({"display": "inline"});
+      console.log("onstatechange loading");
+      if(event.data == 2)
+      {
+        console.log(event.data);
+        player.playVideo();
+        document.getElementById("image").style.animation = "disappear 6s forwards";
+        document.getElementById("top").style.animation= "disappear2 10s forwards";
+        document.getElementById("mute").style.display="inline";
+      }
+      else if(event.data == 1)
+      {
+        console.log(event.data);
+        document.getElementById("image").style.animation = "disappear 6s forwards";
+        document.getElementById("top").style.animation= "disappear2 10s forwards";
+        document.getElementById("mute").style.display="inline";
+      }
+      else 
+      {
+        console.log(event.data);
+        player.playVideo();
+        document.getElementById("image").style.animation = "disappear 6s forwards";
+        document.getElementById("top").style.animation= "disappear2 10s forwards";
+        document.getElementById("mute").style.display="inline";
+      }
+    }
+    let mt=1;
+  function mute(e)
+  {
+    var classVal = document.getElementById("mute").getAttribute('class');
+    if(mt %2 == 0)
+    {
+      classVal = classVal.replace("fa-volume-down","fa-volume-mute");
+      document.getElementById("mute").setAttribute("class",classVal );
+      mt++;
+      player.mute();
+    }
+    else if(mt % 2 ==1)
+    {
+      classVal = classVal.replace("fa-volume-mute","fa-volume-down");
+      document.getElementById("mute").setAttribute("class",classVal );
+      mt = 0;
+      player.unMute();
+    }
+  }
+  </script>

@@ -1,0 +1,96 @@
+
+
+  <style>
+    #vdo
+    {
+      position: relative;
+      z-index: 0;
+      width: 100%;
+    }
+    #ad_btn
+    {
+      position: absolute;
+      z-index: 20;
+      margin-top: 30%;
+      margin-left: 1%;
+      font-size: 1.3vw;
+    }
+    @media (max-width: 375px)
+  {
+    #adbtn
+    {
+      position: absolute;
+      z-index: 20;
+      margin-top: 40%;
+      margin-left: 1%;
+      font-size: 2.5vw;
+    }
+  }
+  </style>
+  
+
+
+    
+
+    
+    <script>
+      
+      //------------------------------------------------variable------------------------------------------------\\
+        let a1=0,a2=0,count=0;
+      //------------------------------------------------variable------------------------------------------------\\ 
+     
+      function vedioPlay()
+      {
+        a1 = Random();
+        let vdArray =["/var/file/9/1009/img/3678/v01.477p.x264.aac.mp4","/var/file/9/1009/img/3678/v02.477p.x264.aac.mp4","/var/file/9/1009/img/3678/v03.477p.x264.aac.mp4"];
+        let btntextArray=['屏東大學資訊學院','了解更多..','高教深耕計畫'];
+        let leng=vdArray.length;
+  let rnd = parseInt(Math.random()*10)%leng;
+  a1=rnd;
+
+  if(count)
+  {
+    count--;
+  }
+  else if(!count)
+  {
+    if(a1 == a2)
+    {
+      if(a1 == 0)
+      {
+        a1++;
+      }
+      else if(a1 == leng-1)
+      {
+        a1--;
+      }
+    }
+  }
+  $("#vdo").attr("src",vdArray[a1]);
+  $("#ad_btn").text(btntextArray[a1]);
+  
+  a2=a1;
+    } 
+      
+
+      function Random()
+      {
+        let rnd= parseInt(Math.random()*10)%3;
+        return rnd;
+      }
+      function btnClick()
+      {
+        let linkArray=['http://www.ccs.nptu.edu.tw','https://www.nptu.edu.tw','http://www.ugsi2usr.nptu.edu.tw'];
+        document.location=linkArray[a1];
+      }
+    </script>
+
+   
+
+<!--                         --                      --Main--                         --                      -->
+<button type="button" onclick="btnClick()" class="btn" id="ad_btn">了解更多..</button>
+<video class="fsc" id="vdo" onended="vedioPlay()" autoplay playsinline controls muted src="/var/file/9/1009/img/3678/v02.477p.x264.aac.mp4">
+
+</video>
+
+    

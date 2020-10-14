@@ -1,0 +1,10 @@
+@keyframes word {
+    from
+    {
+        left: 0;
+    }
+    to
+    {
+        left: 50px;
+    }
+}

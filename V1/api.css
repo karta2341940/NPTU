@@ -1,0 +1,34 @@
+.container {width: 100%; margin: 0px !important; padding: 0px !important;}
+.row .col .mcol{ padding: 0 !important;}
+.hdline{display: none;}
+@media (max-width: 768px)
+{
+    .contain{width: 100%;}
+    .minner {padding-left: 0px !important; padding-right: 0px !important;}
+}
+@media (min-width: 1200px)
+{
+    .container{width: 100% !important;}
+}   
+@media (min-width: 992px)
+{
+    .container{width: 100% !important;}
+}
+
+
+    .btn
+    {
+        border-color: rgba(255, 255, 255, 0.767);
+        color: rgb(255, 255, 255);
+        background-color: rgba(61, 61, 61, 0.582);
+    }
+    .btn:hover
+    {
+        border-color: rgba(255, 255, 255, 0.521);
+        color: rgb(255, 255, 255);
+        background-color: rgba(255, 255, 255, 0.205);
+    }
+    .api_row
+    {
+
+    }
