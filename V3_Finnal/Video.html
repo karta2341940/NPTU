@@ -4,17 +4,20 @@
   //The link that the video link to.
   var linkArray=[ 'http://www.ccs.nptu.edu.tw',
                   'https://www.nptu.edu.tw/files/11-1000-83.php',
-                  'http://www.ugsi2usr.nptu.edu.tw'
+                  'http://www.ugsi2usr.nptu.edu.tw',
+                  'http://www.cedu.nptu.edu.tw'
                 ];
   //The link of video.
   var vdArray = [ "/var/file/9/1009/img/3678/v01.477p.x264.aac.mp4",
                   "/var/file/9/1009/img/3678/v02.477p.x264.aac.mp4",
-                  "/var/file/9/1009/img/3678/v03.477p.x264.aac.mp4"
+                  "/var/file/9/1009/img/3678/v03.477p.x264.aac.mp4",
+                  "/var/file/9/1009/img/3678/ColgEdu.mp4"
                 ];
   //The text that needs show at the video-top
   var btntextArray= [ '進入資訊學院',  
                       '進入關於本校',
-                      '進入高教深耕計畫'
+                      '進入高教深耕計畫',
+                      '進入教育學院'
                     ];
 
 </script>
@@ -38,7 +41,7 @@
 
             <div class="carousel-item active">
                 
-                <video id="vdo" class="fixed" onplay="bambooMouseBBQ()" onended="bambooMouseEnded()" onclick="bambooMouseHeatstroked()" autoplay controls playsinline muted>
+                <video id="vdo" class="fixed" onplay="bambooMouseBBQ()" onended="bambooMouseEnded()" onclick="bambooMouseHeatstroked()" autoplay playsinline muted>
                       <source src="/var/file/9/1009/img/3678/v02.477p.x264.aac.mp4" type="video/mp4">
                       </video>
                       <div class="carousel-caption" onclick="bambooMouseHeatstroked()">
@@ -60,12 +63,15 @@
             
             
             <style>
-                .carousel-caption { position: absolute;top: -20px;font-size: 1vw;}
-                .footer{    display: none;}
+                .carousel-caption { position: absolute;top: -20px;font-size: 1.2vw;}
+                /*.footer{    display: none;}*/
                 .mod_row1{   width: 100%;    height: 40.6848vw;text-align: center;float: left;background-color: red;}
                 .fixed{      width: 100%;    height: 40.6848vw;text-align: center;float: left;}
-                @media (max-width: 480px){
-                .carousel-caption {font-size: 2vw;}
+                
+                @media (max-width: 761px){
+                .carousel-caption {font-size: 2.3vw;}
+                }@media (max-width: 480px){
+                .carousel-caption {font-size: 2.8vw;}
                 }
                 </style>
 
