@@ -7,8 +7,8 @@
                   'http://www.cedu.nptu.edu.tw'
                 ];
   //The link of video.
-  var vdArray = [ "/var/file/9/1009/img/3678/v01.477p.x264.aac.mp4",
-                  "/var/file/9/1009/img/3678/v02.477p.x264.aac.mp4",
+  var vdArray = [ "/var/file/9/1009/img/3678/ColgCcs.mp4",
+                  "/var/file/9/1009/img/3678/Intro.mp4",
                   "/var/file/9/1009/img/3678/ColgEdu.mp4"
                 ];
   //The text that needs show at the video-top
@@ -16,7 +16,7 @@
                       '進入關於本校',
                       '進入教育學院'
                     ];
-
+var firstVideo_index=1;
 </script>
 <!---------------------------------------------------------------------------------------------------->
 
@@ -39,11 +39,12 @@
             <div class="carousel-item active">
                 
                 <video id="vdo" class="fixed" onplay="bambooMouseBBQ()" onended="bambooMouseEnded()" onclick="bambooMouseHeatstroked()" autoplay playsinline muted>
-                      <source src="/var/file/9/1009/img/3678/v02.477p.x264.aac.mp4" type="video/mp4">
-                      </video>
-                      <div class="carousel-caption" onclick="bambooMouseHeatstroked()">
-                          <p id="bbmbbq" style="background-color: rgba(128, 128, 128, 0.397);cursor: default;"></p>
-                        </div>
+                  <!--<source src="/var/file/9/1009/img/3678/Intro.mp4" type="video/mp4">-->
+                </video>
+
+                <div class="carousel-caption" onclick="bambooMouseHeatstroked()">
+                    <p id="bbmbbq" style="background-color: rgba(128, 128, 128, 0.397);cursor: default;"></p>
+                </div>
                     </div>
                     
                 </div>
@@ -76,8 +77,13 @@
 <script>
     $(".carousel").carousel({interval:false}); //Turn off carousel
 
+    (function() {
+      let vd=document.getElementById("vdo");
+      vd.src=vdArray[firstVideo_index];
+    })();
+
     //Declar a variable that records the video number that currently playing.
-    let a1=1;
+    let a1=firstVideo_index;
 
     //Changing to next video
     function bambooMouseF()
