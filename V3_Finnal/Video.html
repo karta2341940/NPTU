@@ -16,6 +16,7 @@
                       '進入關於本校',
                       '進入教育學院'
                     ];
+//set the video that first play
 var firstVideo_index=1;
 </script>
 <!---------------------------------------------------------------------------------------------------->
@@ -38,9 +39,7 @@ var firstVideo_index=1;
 
             <div class="carousel-item active">
                 
-                <video id="vdo" class="fixed" onplay="bambooMouseBBQ()" onended="bambooMouseEnded()" onclick="bambooMouseHeatstroked()" autoplay playsinline muted>
-                  <!--<source src="/var/file/9/1009/img/3678/Intro.mp4" type="video/mp4">-->
-                </video>
+                <video id="vdo" class="fixed" onplay="bambooMouseBBQ()" onended="bambooMouseEnded()" onclick="bambooMouseHeatstroked()" autoplay playsinline muted></video>
 
                 <div class="carousel-caption" onclick="bambooMouseHeatstroked()">
                     <p id="bbmbbq" style="background-color: rgba(128, 128, 128, 0.397);cursor: default;"></p>
@@ -61,7 +60,7 @@ var firstVideo_index=1;
             
             
             <style>
-                .carousel-caption { position: absolute;top: -20px;font-size: 1.2vw;}
+                .carousel-caption { position: absolute;top: -20px;font-size: 1.2vw;cursor: pointer;}
                 /*.footer{    display: none;}*/
                 .mod_row1{   width: 100%;    height: 40.6848vw;text-align: center;float: left;background-color: red;}
                 .fixed{      width: 100%;    height: 40.6848vw;text-align: center;float: left;}
@@ -71,6 +70,7 @@ var firstVideo_index=1;
                 }@media (max-width: 480px){
                 .carousel-caption {font-size: 2.8vw;}
                 }
+                
                 </style>
 
 
