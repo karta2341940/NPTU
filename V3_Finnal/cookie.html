@@ -72,9 +72,9 @@
         if(etn == "")
         { 
             let etned=1;
-            if(document.referrer != "https://front.nptu.edu.tw/" && document.referrer != "https://front.nptu.edu.tw" )//if the user doesn't come from Font.nptu that redirect to Font.nptu
+            if(document.referrer != "https://front.nptu.edu.tw/" && document.referrer != "https://front.nptu.edu.tw" )//if the user doesn't come from front.nptu that redirect to front.nptu
             {
-                setCookie("entered",etned,Days);                    //Setting the cookie's name "entered" and give it a value --1 set its aging 7days
+                setCookie("entered",etned,Days);                    //Setting the cookie's name "entered" and give it a value --1 set its aging 1day
                 document.location.href="https://front.nptu.edu.tw";
             }
             setCookie("entered",etned,Days);
