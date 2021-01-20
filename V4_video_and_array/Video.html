@@ -1,0 +1,189 @@
+<!--Some resource import-->
+<link rel="stylesheet" href="var/file/9/1009/img/3681/carousel.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+<!-- The slideshow -->
+<div class="mod_row1">
+    <div id="demo" class="carousel slide" data-ride="carousel">
+        
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                
+                <video id="vdo" class="fixed" onplay="bambooMouseBBQ()" onended="bambooMouseEnded()" onclick="bambooMouseHeatstroked()" autoplay playsinline controls muted></video>
+
+                <div class="carousel-caption" onclick="bambooMouseHeatstroked()">
+                    <p id="bbmbbq" style="background-color: rgba(128, 128, 128, 0.397);cursor: default;"></p>
+                </div>
+                    </div>
+                    
+                </div>
+                
+                <!-- Left and right controls -->
+                <a class="carousel-control-prev" onclick="bambooMouseL()" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" onclick="bambooMouseR()" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+    </div>
+</div>
+            
+            
+            <style>
+                .carousel-caption { position: absolute;top: -20px;font-size: 1.2vw;cursor: pointer;}
+                /*.footer{    display: none;}*/
+                .mod_row1{   width: 100%;    height: 40.6848vw;text-align: center;float: left;background-color: red;}
+                .fixed{      width: 100%;    height: 40.6848vw;text-align: center;float: left;}
+                
+                @media (max-width: 761px){
+                .carousel-caption {font-size: 2.3vw;}
+                }@media (max-width: 480px){
+                .carousel-caption {font-size: 2.8vw;}
+                }
+                
+                </style>
+
+
+<script>
+
+    //Declar a variable that records the video number that currently playing.
+    let a1=firstVideo_index;
+    // Random mode
+    let mode = 1;
+    let randomArray=[];
+    //Turn off carousel
+    $(".carousel").carousel({interval:false}); 
+    
+    //Executing immediately function
+    (function() {
+      let vd=document.getElementById("vdo");
+      vd.src=vdArray[firstVideo_index];
+      if(mode == 1)
+      {
+        //initial randomArray
+        for(let i = 0 ; i < vdArray.length ; i++)
+        {
+          randomArray[i]=i;
+        }
+        for(let i = 0;i<randomArray.length; i++)
+        {
+          console.log(randomArray[i]);
+        }
+        console.log("----------------------Before--------------------------");
+        for(let i = 0;i<vdArray.length; i++)
+        {
+          let tmp=0;
+          let rnd = parseInt(Math.random()*10 % vdArray.length);
+          tmp = randomArray[i];
+          randomArray[i] = randomArray[rnd];
+          randomArray[rnd] = tmp;
+        }
+        
+        for(let i = 0;i<randomArray.length; i++)
+        {
+          console.log(randomArray[i]);
+        }
+        randomArray.unshift(0);
+        console.log("------------------------After------------------------");
+        for(let i = 0;i<randomArray.length; i++)
+        {
+          console.log(randomArray[i]);
+        }
+      }
+      console.log(" a1 = "+a1);
+      console.log("------------------------------------------------");
+    })();
+
+    //Changing to next video
+    function bambooMouseL()
+    {
+      if(mode == 0)
+      {
+        let vd=document.getElementById("vdo");
+        a1++;
+        if(a1 > vdArray.length-1) a1 = 0;
+        vd.src=vdArray[a1];
+        console.log(a1);
+      }
+      else if(mode ==1)
+      {
+        let vd=document.getElementById("vdo");
+        a1--;
+        if(a1 < 0) a1 = randomArray.length-1;
+        let tmp=randomArray[a1];
+        vd.src=vdArray[tmp];
+        console.log(tmp);
+      }
+    }
+
+    //Changing to last video
+    function bambooMouseR()
+    {
+      if(mode == 0)
+      {
+        let vd=document.getElementById("vdo");
+        a1--;
+        if(a1 < 0) a1 = vdArray.length-1;
+        vd.src=vdArray[a1];
+        console.log(a1);
+      }
+      else if(mode == 1)
+      {
+        let vd=document.getElementById("vdo");
+        a1++;
+        if(a1 > randomArray.length-1) a1 = 0;
+        let tmp=randomArray[a1];
+        vd.src=vdArray[tmp];
+        console.log(tmp);
+      }
+
+    }
+
+    //When the video end executing this function to decide the next video 
+    function bambooMouseEnded()
+    {
+      if(mode == 0)
+      {
+        let rnd = parseInt(Math.random()*10 % linkArray.length);
+        let vd=document.getElementById("vdo");
+        if( rnd == a1 )                           //identifying whether the random number is equal currently video number ,
+        {                                         //if true identify whether the video is the last one or not.
+          if( rnd == vdArray.length - 1 ) rnd--;  //if the last , minus 1
+          else rnd++;                             //others plus 1
+          a1 = rnd;
+        }
+        else a1 = rnd;
+        vd.src=vdArray[a1];
+        console.log("Vedio: "+a1);                //This code is for debug
+      }
+      else if(mode ==1)
+      {
+        let vd=document.getElementById("vdo");
+        a1++;
+        if(a1 == randomArray.length-1) a1 =0;
+        let tmp=randomArray[a1];
+        vd.src=vdArray[tmp];
+        console.log(tmp);
+      }
+    }
+    function bambooMouseHeatstroked()
+    {
+    	window.open(linkArray[randomArray[a1]]);//Open the link in new window
+      //document.location.href=linkArray[a1]; //Open the link in the currently window
+    }
+    function bambooMouseBBQ()
+    {   
+      let tmp=randomArray[a1];
+      document.getElementById("bbmbbq").innerHTML= "點擊影片" + btntextArray[tmp];
+        
+    }
+    bambooMouseBBQ();
+    
+    
+    </script>
