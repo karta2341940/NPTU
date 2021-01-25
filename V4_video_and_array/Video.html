@@ -115,10 +115,10 @@
       {
         let vd=document.getElementById("vdo");
         a1--;
-        if(a1 < 0) a1 = randomArray.length-1;
+        if(a1 <= 0) a1 = randomArray.length-1;
         let tmp=randomArray[a1];
         vd.src=vdArray[tmp];
-        console.log(tmp);
+        console.log("Tip : a1 = " +tmp);
       }
     }
 
@@ -137,10 +137,10 @@
       {
         let vd=document.getElementById("vdo");
         a1++;
-        if(a1 > randomArray.length-1) a1 = 0;
+        if(a1 > randomArray.length-1) a1 = 1;
         let tmp=randomArray[a1];
         vd.src=vdArray[tmp];
-        console.log(tmp);
+        console.log("Tip : a1 = " +tmp);
       }
 
     }
@@ -166,10 +166,17 @@
       {
         let vd=document.getElementById("vdo");
         a1++;
-        if(a1 == randomArray.length-1) a1 =0;
+        if(a1 == randomArray.length)
+        {
+          a1=1;
+        }
+        if( randomArray[a1] == randomArray[a1-1])
+        {
+          a1++;
+        }
         let tmp=randomArray[a1];
         vd.src=vdArray[tmp];
-        console.log(tmp);
+        console.log("Tip : a1 = " +tmp);
       }
     }
     function bambooMouseHeatstroked()
