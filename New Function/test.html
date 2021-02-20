@@ -1,0 +1,22 @@
+
+<script>
+
+function play(){
+	$('.youtube-video')[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+}
+
+function stop(){
+	$('.youtube-video')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+}
+
+function pause(){
+	$('.youtube-video')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+}
+</script>
+
+
+<button onclick="play()" class="play-video">Play Video</button>
+<button onclick='stop()' class="stop-video">Stop Video</button>
+<button onclick='pause()' class="pause-video">Pause Video</button>
+
+<iframe class="youtube-video" width="560" height="315" src="https://www.youtube.com/embed/glEiPXAYE-U?enablejsapi=1&version=3&playerapiid=ytplayer" frameborder="0" allowfullscreen></iframe>
