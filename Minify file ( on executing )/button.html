@@ -1,0 +1,1 @@
+<script>let total=$(".youtube-video").length;function stop(){for(let i=0;i<=total;i++) {$('.youtube-video')[i].contentWindow.postMessage('{"event":"command","func":"'+'pauseVideo'+'","args":""}','*');}} setTimeout(myAlert,1000);function myAlert(){$(".owl-prev").click(stop);$(".owl-next").click(stop);}</script>

@@ -1,31 +1,16 @@
-<button onclick="stop()">stop</button>
-
 <script>
 	let total = $(".youtube-video").length;
-	
-	function abc(){
-
-		console.log($("button").length);
-		return 0;
-	}
-
-	abc();
-	
 	function stop(){
-		console.log("Click");
 		for(let i =0 ; i <= total ; i++)
 		{
-			abc();
 			$('.youtube-video')[i].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
 		}
 	}
-
 	setTimeout(myAlert, 1000);
-
 	function myAlert() {
 		$(".owl-prev").click(stop);
 		$(".owl-next").click(stop);
-		console.log("prev = "+$(".owl-prev").length + "next = " + $(".owl-next").length );
-		console.log($("button").length);
+		//console.log("prev = "+$(".owl-prev").length + "next = " + $(".owl-next").length );
+		//console.log($("button").length);
 	}
 </script>
